@@ -136,10 +136,15 @@
   .indent-line{display:block;padding-left:.7em;}
 
   /* ---------- Section: Problem ---------- */
-  #problem .inner{grid-template-columns:1fr;max-width:1040px;gap:0;}
-  .problem-top{margin-bottom:0;}
-  .problem-bottom{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(24px,4vw,56px);align-items:start;}
-  #problem .visual-stack{max-width:240px;}
+  #problem .inner{
+    display:grid;grid-template-columns:1.4fr 1fr;
+    column-gap:clamp(24px,4vw,56px);row-gap:0;
+    max-width:1040px;align-items:start;
+  }
+  #problem .problem-head{grid-column:1/-1;}
+  #problem .inner > p{grid-column:1;}
+  #problem .problem-bottom-text{grid-column:1;}
+  #problem .visual-stack{grid-column:2;grid-row:2/5;align-self:start;max-width:320px;width:100%;}
   #problem .bg-shape{width:120%;left:-24%;top:18%;}
   #problem .badge-img{left:-10%;bottom:-8%;transform:rotate(-8deg);}
   .badge-inline{position:static !important;display:block !important;margin-top:14px;
@@ -200,12 +205,14 @@
     #cover .badge-img{width:min(120px,30vw);right:10%;top:3%;}
 
     /* Problem: full-width intro, then last two paragraphs beside the image */
-    #problem .inner{grid-template-columns:1fr !important;}
+    #problem .inner{grid-template-columns:1.3fr 1fr !important;column-gap:10px;row-gap:0;}
+    #problem .problem-head{grid-column:1/-1;}
+    #problem .inner > p{grid-column:1/-1;}
     #problem h2{font-size:clamp(1.15rem,5.5vw,1.4rem);}
     #problem p{font-size:.85rem;line-height:1.48;}
-    #problem .problem-bottom{grid-template-columns:1.3fr 1fr;gap:10px;align-items:start;}
-    #problem .visual-stack{max-width:none;width:100%;margin:4px 0 0;}
-    .badge-inline{width:min(120px,30vw) !important;}
+    #problem .problem-bottom-text{grid-column:1;}
+    #problem .visual-stack{grid-column:2;grid-row:auto;max-width:none;width:100%;margin:4px 0 0;}
+    .badge-inline{display:none !important;}
 
     /* Benefits: 2 columns instead of a long single stack */
     #benefits .inner{gap:12px;}
@@ -330,17 +337,16 @@
   <!-- SECTION 2 — PROBLEM -->
   <section id="problem">
     <div class="inner">
-      <div class="problem-top">
+      <div class="problem-head">
         <div class="eyebrow">Die Ausgangslage</div>
         <h2>Depression: Der Therapieplatz lässt auf sich warten?</h2>
-        <p class="lead">Das Angebot an Therapieplätzen reicht für die Nachfrage nach psychotherapeutischer Behandlung bei Depressionen oft nicht aus. Evidenzbasierte digitale Therapieansätze können die Versorgung ergänzen und Wartezeiten strukturiert überbrücken.<sup>3</sup></p>
-        <p>edupression<sup>®</sup> bietet als digitale Gesundheitsanwendung (dGA) eine evidenzbasierte digitale Therapie für Erwachsene mit leichter oder mittelschwerer unipolarer Depression. Sie kombiniert Übungen auf Basis der kognitiven Verhaltenstherapie (KVT), Psychoedukation und Verlaufsmonitoring in einer Anwendung.</p>
       </div>
-      <div class="problem-bottom">
-        <div class="problem-bottom-text">
-          <p>Nach ärztlicher Verordnung kann edupression<sup>®</sup> als Überbrückung bis zum Beginn einer Psychotherapie bei leichten bis mittelschweren depressiven Episoden oder ergänzend zu einer laufenden Behandlung eingesetzt werden.</p>
-          <p>Die Kosten werden bei entsprechender ärztlicher Verordnung und unter Einhaltung der MiGeL-Limitationen seit dem 1. Juli 2026 von der Grundversicherung übernommen.<sup>1</sup></p>
-          <svg class="badge-img badge-inline" role="img" aria-label="NEU kassenzulaessig seit 1. Juli 2026" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 142.74 142.7">
+      <p class="lead">Das Angebot an Therapieplätzen reicht für die Nachfrage nach psychotherapeutischer Behandlung bei Depressionen oft nicht aus. Evidenzbasierte digitale Therapieansätze können die Versorgung ergänzen und Wartezeiten strukturiert überbrücken.<sup>3</sup></p>
+      <p>edupression<sup>®</sup> bietet als digitale Gesundheitsanwendung (dGA) eine evidenzbasierte digitale Therapie für Erwachsene mit leichter oder mittelschwerer unipolarer Depression. Sie kombiniert Übungen auf Basis der kognitiven Verhaltenstherapie (KVT), Psychoedukation und Verlaufsmonitoring in einer Anwendung.</p>
+      <div class="problem-bottom-text">
+        <p>Nach ärztlicher Verordnung kann edupression<sup>®</sup> als Überbrückung bis zum Beginn einer Psychotherapie bei leichten bis mittelschweren depressiven Episoden oder ergänzend zu einer laufenden Behandlung eingesetzt werden.</p>
+        <p>Die Kosten werden bei entsprechender ärztlicher Verordnung und unter Einhaltung der MiGeL-Limitationen seit dem 1. Juli 2026 von der Grundversicherung übernommen.<sup>1</sup></p>
+        <svg class="badge-img badge-inline" role="img" aria-label="NEU kassenzulaessig seit 1. Juli 2026" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 142.74 142.7">
   <defs>
     <style>
       .st0 {
@@ -399,7 +405,6 @@
           <img class="bg-shape" src="assets/blue_bar_big.svg" alt="">
           <img class="phone-img" src="assets/screen1.png" alt="edupression App: Heutige ToDo's">
           
-      </div>
       </div>
     </div>
   </section>
