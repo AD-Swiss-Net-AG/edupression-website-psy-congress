@@ -136,9 +136,14 @@
   .indent-line{display:block;padding-left:.7em;}
 
   /* ---------- Section: Problem ---------- */
-  #problem .visual-stack{max-width:270px;}
+  #problem .inner{grid-template-columns:1fr;max-width:1040px;gap:0;}
+  .problem-top{margin-bottom:0;}
+  .problem-bottom{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(24px,4vw,56px);align-items:start;}
+  #problem .visual-stack{max-width:240px;}
   #problem .bg-shape{width:120%;left:-24%;top:18%;}
-  #problem .badge-img{width:min(84px,24vw);left:-10%;bottom:-8%;transform:rotate(-8deg);}
+  #problem .badge-img{left:-10%;bottom:-8%;transform:rotate(-8deg);}
+  .badge-inline{position:static !important;display:block !important;margin-top:14px;
+    width:min(190px,19vw) !important;transform:rotate(-9deg) !important;}
 
   /* ---------- Section: Benefits ---------- */
   #benefits .inner{grid-template-columns:1fr;max-width:1040px;}
@@ -194,12 +199,13 @@
     #cover .phone-img{width:min(130px,34vw);left:6%;top:50%;}
     #cover .badge-img{width:min(120px,30vw);right:10%;top:3%;}
 
-    /* Problem */
-    #problem .inner{gap:12px;}
-    #problem h2{font-size:clamp(1.35rem,6.5vw,1.7rem);}
-    #problem p.lead{margin-bottom:.4rem;}
-    #problem .visual-stack{max-width:150px !important;margin:6px auto 0;}
-    #problem .badge-img{width:min(64px,20vw);}
+    /* Problem: full-width intro, then last two paragraphs beside the image */
+    #problem .inner{grid-template-columns:1fr !important;}
+    #problem h2{font-size:clamp(1.15rem,5.5vw,1.4rem);}
+    #problem p{font-size:.85rem;line-height:1.48;}
+    #problem .problem-bottom{grid-template-columns:1.3fr 1fr;gap:10px;align-items:start;}
+    #problem .visual-stack{max-width:none;width:100%;margin:4px 0 0;}
+    .badge-inline{width:min(120px,30vw) !important;}
 
     /* Benefits: 2 columns instead of a long single stack */
     #benefits .inner{gap:12px;}
@@ -324,17 +330,17 @@
   <!-- SECTION 2 — PROBLEM -->
   <section id="problem">
     <div class="inner">
-      <div>
+      <div class="problem-top">
         <div class="eyebrow">Die Ausgangslage</div>
         <h2>Depression: Der Therapieplatz lässt auf sich warten?</h2>
         <p class="lead">Das Angebot an Therapieplätzen reicht für die Nachfrage nach psychotherapeutischer Behandlung bei Depressionen oft nicht aus. Evidenzbasierte digitale Therapieansätze können die Versorgung ergänzen und Wartezeiten strukturiert überbrücken.<sup>3</sup></p>
         <p>edupression<sup>®</sup> bietet als digitale Gesundheitsanwendung (dGA) eine evidenzbasierte digitale Therapie für Erwachsene mit leichter oder mittelschwerer unipolarer Depression. Sie kombiniert Übungen auf Basis der kognitiven Verhaltenstherapie (KVT), Psychoedukation und Verlaufsmonitoring in einer Anwendung.</p>
-        <p>Die Kosten werden bei entsprechender ärztlicher Verordnung und unter Einhaltung der MiGeL-Limitationen seit dem 1. Juli 2026 von der Grundversicherung übernommen.<sup>1</sup></p>
       </div>
-      <div class="visual-stack">
-        <img class="bg-shape" src="assets/blue_bar_big.svg" alt="">
-        <img class="phone-img" src="assets/screen1.png" alt="edupression App: Heutige ToDo's">
-        <svg class="badge-img" role="img" aria-label="NEU kassenzulaessig seit 1. Juli 2026" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 142.74 142.7">
+      <div class="problem-bottom">
+        <div class="problem-bottom-text">
+          <p>Nach ärztlicher Verordnung kann edupression<sup>®</sup> als Überbrückung bis zum Beginn einer Psychotherapie bei leichten bis mittelschweren depressiven Episoden oder ergänzend zu einer laufenden Behandlung eingesetzt werden.</p>
+          <p>Die Kosten werden bei entsprechender ärztlicher Verordnung und unter Einhaltung der MiGeL-Limitationen seit dem 1. Juli 2026 von der Grundversicherung übernommen.<sup>1</sup></p>
+          <svg class="badge-img badge-inline" role="img" aria-label="NEU kassenzulaessig seit 1. Juli 2026" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 142.74 142.7">
   <defs>
     <style>
       .st0 {
@@ -388,6 +394,12 @@
   </g>
   <path class="st0" d="M126.36,74.9c.15-.41.39-.74.72-.99.33-.25.72-.41,1.16-.47.47-.06.88,0,1.25.16.37.17.65.41.84.73l-.14-1.08.63-.08.64,4.89-.63.08-.14-1.08c-.11.35-.32.66-.63.93-.31.26-.7.42-1.16.49-.44.06-.85,0-1.24-.16-.38-.16-.7-.42-.95-.78s-.41-.78-.47-1.29c-.07-.5-.02-.96.13-1.36ZM130.13,74.7c-.2-.28-.45-.48-.75-.6-.3-.12-.62-.17-.95-.12-.35.05-.65.17-.9.36-.25.19-.44.45-.56.76-.12.32-.15.68-.1,1.08.05.4.18.74.38,1.02.2.28.44.48.74.6.29.12.62.16.96.11.33-.04.63-.16.89-.36.26-.2.45-.46.57-.78.12-.32.16-.68.11-1.07-.05-.39-.18-.73-.38-1.01Z"/>
 </svg>
+        </div>
+        <div class="visual-stack">
+          <img class="bg-shape" src="assets/blue_bar_big.svg" alt="">
+          <img class="phone-img" src="assets/screen1.png" alt="edupression App: Heutige ToDo's">
+          
+      </div>
       </div>
     </div>
   </section>
