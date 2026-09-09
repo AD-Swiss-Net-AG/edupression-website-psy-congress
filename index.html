@@ -176,10 +176,14 @@
   .steps-right .txt-col p{font-size:.86rem;margin-bottom:.8rem;}
   .steps-right .visual-stack{max-width:210px;}
   .steps-right .photo-img{width:100%;border-radius:4px;}
-  .company-line{font-size:.66rem;color:var(--ink);opacity:.6;margin-top:14px;}
-
   .footer-legal{position:absolute;bottom:0;left:0;right:0;padding:0 clamp(20px,6vw,96px) max(16px, env(safe-area-inset-bottom));}
-  .footer-legal p{max-width:none;font-size:.58rem;opacity:.5;line-height:1.55;margin:0;font-weight:400;}
+  .footer-legal-inner{max-width:1180px;margin:0 auto;}
+  .footer-legal p{max-width:none;font-size:.58rem;opacity:.5;line-height:1.55;margin:0 0 4px 0;font-weight:400;}
+  .footer-legal p:last-child{margin-bottom:0;}
+  .footer-bottom-row{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-top:8px;hyphens:none;-webkit-hyphens:none;-ms-hyphens:none;}
+  .company-line{font-size:.86rem;color:var(--ink);opacity:.5;}
+  .ce-line{display:flex;align-items:center;gap:6px;color:#000;opacity:1;margin:0;flex:none;}
+  .ce-mark{width:22px;height:auto;flex:none;}
 
   /* ---------- Mobile: horizontal swipe paging ---------- */
   @media (max-width:760px){
@@ -244,7 +248,10 @@
     #steps .steps-right h2{font-size:1rem;margin-bottom:.25rem;}
     .steps-right .txt-col p{font-size:.76rem;margin-bottom:.4rem;line-height:1.4;}
     .steps-right .visual-stack{max-width:96px;margin:4px auto 0;}
-    .company-line{font-size:.6rem;margin-top:8px;}
+    .company-line{font-size:.76rem;}
+    .footer-bottom-row{flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:flex-start;gap:8px;margin-top:4px;}
+    .company-line{flex:1 1 0;min-width:0;}
+    .ce-line{flex:1 1 0;min-width:0;align-items:center;justify-content:flex-end;text-align:left;}
     .qr-row[style]{margin-top:10px !important;}
 
     .footer-legal{position:static;margin-top:auto;padding-top:14px;padding-left:0;padding-right:0;}
@@ -470,7 +477,6 @@
             <img src="assets/QR_edupression-1024.svg" alt="QR-Code: Mehr erfahren">
             <div class="qr-label">Mehr erfahren</div>
           </div>
-          <div class="company-line">AD Swiss Net AG, Seidenstrasse 4, 8304 Wallisellen, Schweiz</div>
         </div>
         <div class="visual-stack">
           <img class="photo-img" src="assets/Edupression-Digitale-Psychotherapie.png" alt="Patientin mit Smartphone">
@@ -478,14 +484,23 @@
       </div>
     </div>
     <div class="footer-legal">
-      <p>
-        a Seit dem 1. Juli 2026 wird edupression® in der Schweiz unter bestimmten Voraussetzungen auf ärztliche Verordnung von der OKP vergütet. Quelle: BAG, «Digitale Therapie-Angebote können neu von Krankenversicherung übernommen werden», 04.12.2025. Abruf: 27.08.2026. —
-        b edupression® bietet als digitale Gesundheitsanwendung (dGA) eine evidenzbasierte digitale Therapie für Erwachsene mit leichter oder mittelschwerer unipolarer Depression. Nach ärztlicher Verordnung kann edupression® als Überbrückung bis zum Beginn einer Psychotherapie bei leichten bis mittelschweren depressiven Episoden oder ergänzend zu einer laufenden Behandlung eingesetzt werden. —
-        1 Bundesamt für Gesundheit (BAG), 4. Dezember 2025; KLV Anhang 2 / MiGeL, Ausgabe 1. Juli 2026, Ziffer 40.01, Position 40.01.01.00.1, S. 3–4. —
-        2 Preiss et al. RCT of the efficacy of the digital self-help program edupression.com® in mild-to-moderate unipolar depressive patients (eFICASY study). Int J Neuropsychopharmacol. 2025;28(Suppl 1):i196–i197. —
-        3 Pezawas L. Evidenzbasierte digitale Depressionstherapie. psychopraxis. neuropraxis 27, 35–38 (2024). —
-        Medizinprodukt der Klasse I gemäss Verordnung (EU) 2017/745.
-      </p>
+      <div class="footer-legal-inner">
+      <p>a Seit dem 1. Juli 2026 wird edupression® in der Schweiz unter bestimmten Voraussetzungen auf ärztliche Verordnung von der OKP vergütet. Quelle: BAG, «Digitale Therapie-Angebote können neu von Krankenversicherung übernommen werden», 04.12.2025. Abruf: 27.08.2026.</p>
+      <p>b edupression® bietet als digitale Gesundheitsanwendung (dGA) eine evidenzbasierte digitale Therapie für Erwachsene mit leichter oder mittelschwerer unipolarer Depression. Nach ärztlicher Verordnung kann edupression® als Überbrückung bis zum Beginn einer Psychotherapie bei leichten bis mittelschweren depressiven Episoden oder ergänzend zu einer laufenden Behandlung eingesetzt werden.</p>
+      <p>1 Bundesamt für Gesundheit (BAG), 4. Dezember 2025; KLV Anhang 2 / MiGeL, Ausgabe 1. Juli 2026, Ziffer 40.01, Position 40.01.01.00.1, S. 3–4.</p>
+      <p>2 Preiss et al. RCT of the efficacy of the digital self-help program edupression.com® in mild-to-moderate unipolar depressive patients (eFICASY study). Int J Neuropsychopharmacol. 2025;28(Suppl 1):i196–i197.</p>
+      <p>3 Pezawas L. Evidenzbasierte digitale Depressionstherapie. psychopraxis. neuropraxis 27, 35–38 (2024).</p>
+      <div class="footer-bottom-row">
+        <div class="company-line">AD Swiss Net AG, Seidenstrasse 4, 8304 Wallisellen, Schweiz</div>
+        <p class="ce-line">
+          <svg class="ce-mark" viewBox="0 0 280 200" role="img" aria-label="CE-Kennzeichen">
+            <path d="M110,199.498744A100,100 0 0 1 100,200A100,100 0 0 1 100,0A100,100 0 0 1 110,0.501256L110,30.501256A70,70 0 0 0 100,30A70,70 0 0 0 100,170A70,70 0 0 0 110,169.498744Z" fill="#000"/>
+            <path d="M280,199.498744A100,100 0 0 1 270,200A100,100 0 0 1 270,0A100,100 0 0 1 280,0.501256L280,30.501256A70,70 0 0 0 270,30A70,70 0 0 0 201.620283,85L260,85L260,115L201.620283,115A70,70 0 0 0 270,170A70,70 0 0 0 280,169.498744Z" fill="#000"/>
+          </svg>
+          Medizinprodukt der Klasse I<br>gemäss Verordnung (EU) 2017/745.
+        </p>
+      </div>
+      </div>
     </div>
   </section>
 
