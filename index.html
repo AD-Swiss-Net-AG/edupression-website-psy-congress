@@ -100,12 +100,37 @@
     filter:drop-shadow(0 10px 20px rgba(0,0,0,.18));overflow:visible;}
   .phone-img{position:relative;z-index:2;width:100%;}
 
-  /* ---------- Section: Cover ---------- */
-  #cover{background:var(--grey-bg);}
-  #cover .visual-stack{margin-top:8px;}
-  #cover .bg-shape{width:65%;left:-14%;top:38%;}
-  #cover .phone-img{position:absolute;width:min(150px,42vw);left:-10%;bottom:-14%;}
-  #cover .badge-img{right:-8%;bottom:-10%;}
+  /* ---------- Section: Cover — split white/grey hero ---------- */
+  #cover{padding:0;background:var(--paper);}
+  #cover .inner{max-width:none;width:100%;height:100%;margin:0;
+    display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;}
+  #cover .cover-textcol{
+    display:flex;flex-direction:column;justify-content:center;
+    padding:0 clamp(28px,5vw,64px) 0 clamp(24px,6vw,96px);
+    background:var(--paper);
+  }
+  #cover .cover-visualcol{
+    position:relative;height:100%;background:var(--grey-bg);overflow:hidden;
+  }
+  #cover .keyvisual-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:0;}
+  #cover .phone-img{position:absolute;z-index:2;width:min(230px,29vw);left:9%;top:50%;transform:translateY(-46%);}
+  #cover .badge-img{position:absolute;z-index:3;width:min(190px,19vw);right:16%;top:8%;transform:rotate(-9deg);}
+  #cover h1{font-size:clamp(2.6rem,5vw,4.8rem);font-weight:700;line-height:1.03;}
+  .cover-sub{font-size:1.05rem;max-width:38ch;opacity:.82;margin-top:.9rem;}
+  .cta-btn{
+    display:inline-flex;align-items:center;gap:12px;
+    background:var(--ink);color:#fff;border:none;cursor:pointer;
+    padding:.85rem 1.7rem;border-radius:999px;
+    font-family:var(--font);font-weight:600;font-size:.95rem;
+    margin-top:1.5rem;width:fit-content;transition:background .2s;
+  }
+  .cta-btn:hover{background:var(--accent);}
+  .cta-btn .arrow{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.2);font-size:.75rem;
+  }
+  .cta-btn .arrow .down{display:inline;}
+  .cta-btn .arrow .right{display:none;}
   .accent-word{color:var(--accent);}
   .small-word{font-size:.52em;font-weight:500;color:var(--ink);}
   .indent-line{display:block;padding-left:.7em;}
@@ -139,13 +164,6 @@
   .footer-legal{position:absolute;bottom:0;left:0;right:0;padding:0 clamp(20px,6vw,96px) max(16px, env(safe-area-inset-bottom));}
   .footer-legal p{max-width:none;font-size:.58rem;opacity:.5;line-height:1.55;margin:0;font-weight:400;}
 
-  .cta-arrow{
-    position:absolute;bottom:max(20px, env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);
-    color:var(--accent);font-size:.72rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;
-  }
-  .cta-arrow .line{width:1px;height:20px;background:var(--accent);animation:pulse 1.8s ease-in-out infinite;}
-  @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
-
   /* ---------- Mobile: horizontal swipe paging ---------- */
   @media (max-width:760px){
     .scroller{display:flex;flex-direction:row;overflow-x:scroll;overflow-y:hidden;scroll-snap-type:x mandatory;}
@@ -156,7 +174,7 @@
       overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;
       padding-top:18px;padding-bottom:34px;
     }
-    #cover{padding-top:78px;}
+    #cover{padding:0;}
     .inner, .steps-right{grid-template-columns:1fr !important;}
     #steps .inner{padding-top:0;}
     h1{margin-bottom:.35rem;}
@@ -164,12 +182,17 @@
     p{margin-top:0;margin-bottom:.55rem;font-size:.85rem;line-height:1.48;}
     .eyebrow{margin-bottom:.4rem;}
 
-    /* Cover */
-    #cover .inner{gap:14px;}
-    #cover h1{font-size:clamp(1.7rem,8vw,2.2rem);line-height:1.12;}
-    #cover .visual-stack{max-width:170px !important;margin:6px auto 0;}
-    #cover .phone-img{width:min(105px,32vw);}
-    #cover .badge-img{width:min(80px,24vw);}
+    /* Cover: stacked white(top)/grey(bottom) split */
+    #cover .inner{grid-template-rows:auto 1fr;gap:0;}
+    #cover .cover-textcol{padding:max(64px, env(safe-area-inset-top) + 50px) clamp(20px,6vw,40px) 22px;justify-content:flex-start;}
+    #cover .cover-visualcol{min-height:38vh;}
+    #cover h1{font-size:clamp(1.9rem,8.5vw,2.5rem);line-height:1.08;}
+    #cover .cover-sub{font-size:.85rem;margin-top:.6rem;}
+    #cover .cta-btn{padding:.65rem 1.3rem;font-size:.82rem;margin-top:1rem;}
+    .cta-btn .arrow .down{display:none;}
+    .cta-btn .arrow .right{display:inline;}
+    #cover .phone-img{width:min(130px,34vw);left:6%;top:50%;}
+    #cover .badge-img{width:min(120px,30vw);right:10%;top:3%;}
 
     /* Problem */
     #problem .inner{gap:12px;}
@@ -232,11 +255,12 @@
       <div class="tag">Die digitale Therapie bei Depression</div>
     </div>
     <div class="inner">
-      <div class="cover-text">
+      <div class="cover-textcol">
         <h1>Starten<span class="indent-line"><span class="small-word">statt</span> <span class="accent-word">warten</span></span><span class="indent-line accent-word">mit edupression<sup>®</sup></span></h1>
+        <p class="cover-sub">Evidenzbasierte digitale Therapie für Erwachsene mit leichter oder mittelschwerer unipolarer Depression.</p>
+        <button class="cta-btn" data-target="problem">Mehr erfahren <span class="arrow"><span class="down">↓</span><span class="right">→</span></span></button>
       </div>
-      <div class="visual-stack">
-        <img class="bg-shape" src="assets/blue_bar_small.svg" alt="">
+      <div class="cover-visualcol">
         <img class="keyvisual-img" src="assets/SER_Edu_Keyvisual_edit.jpg" alt="Patientin mit dem Kopf in den Händen">
         <img class="phone-img" src="assets/App_screen2_Claudia.png" alt="edupression App: Meine 18. Therapieeinheit">
         <svg class="badge-img" role="img" aria-label="NEU kassenzulaessig seit 1. Juli 2026" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 142.74 142.7">
@@ -295,7 +319,6 @@
 </svg>
       </div>
     </div>
-    <div class="cta-arrow">Weiterlesen<div class="line"></div></div>
   </section>
 
   <!-- SECTION 2 — PROBLEM -->
@@ -453,7 +476,7 @@
   window.addEventListener('resize', setVH);
   window.addEventListener('orientationchange', setVH);
 
-  const buttons = document.querySelectorAll('nav.dots button');
+  const buttons = document.querySelectorAll('nav.dots button, .cta-btn');
   const sections = document.querySelectorAll('section');
   const scroller = document.getElementById('scroller');
 
