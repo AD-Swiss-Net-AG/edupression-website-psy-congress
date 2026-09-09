@@ -9,13 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#11407D;        /* primary navy — headlines + body text, extracted from flyer */
-    --accent:#5775B5;     /* secondary blue accent, extracted from flyer */
-    --accent-bg:#E4F3FB;  /* light blue box background, extracted from flyer */
-    --mint:#47AF55;       /* green badge, extracted from flyer */
+    --ink:#11407D;
+    --accent:#5775B5;
+    --accent-bg:#E4F3FB;
+    --mint:#47AF55;
     --mint-soft:#DCEFE1;
-    --grey-bg:#E1E3DF;    /* cover-page grey, extracted from flyer */
-    --peach:#FDD69E;      /* decorative shape, extracted from flyer */
+    --grey-bg:#E1E3DF;
+    --peach:#FDD69E;
     --paper:#FFFFFF;
     --line:rgba(17,64,125,0.16);
     --font:'Poppins', sans-serif;
@@ -30,272 +30,145 @@
     -webkit-font-smoothing:antialiased;
     overscroll-behavior-y:contain;
   }
+  img{max-width:100%;display:block;}
   @media (prefers-reduced-motion: no-preference){
     .scroller{scroll-behavior:smooth;}
   }
   .scroller{
-    height:100vh;
-    height:calc(var(--vh, 1vh) * 100);
-    height:100dvh;
+    height:100vh;height:calc(var(--vh, 1vh) * 100);height:100dvh;
     overflow-y:scroll;
     scroll-snap-type:y mandatory;
     -webkit-overflow-scrolling:touch;
   }
   section{
-    height:100vh;
-    height:calc(var(--vh, 1vh) * 100);
-    height:100dvh;
+    height:100vh;height:calc(var(--vh, 1vh) * 100);height:100dvh;
     width:100%;
     scroll-snap-align:start;
     scroll-snap-stop:always;
-    display:flex;
-    align-items:center;
-    position:relative;
-    overflow:hidden;
+    display:flex;align-items:center;position:relative;overflow:hidden;
     padding:0 clamp(20px,6vw,96px);
+    background:var(--paper);
   }
   .inner{
-    width:100%;
-    max-width:1180px;
-    margin:0 auto;
-    display:grid;
-    grid-template-columns:1.1fr 0.9fr;
-    gap:clamp(28px,6vw,80px);
-    align-items:center;
+    width:100%;max-width:1180px;margin:0 auto;
+    display:grid;grid-template-columns:1.05fr 0.95fr;
+    gap:clamp(28px,6vw,72px);align-items:center;
   }
   h1,h2{
-    font-family:var(--font);
-    font-weight:600;
-    line-height:1.08;
-    margin:0 0 .5rem 0;
-    letter-spacing:-0.01em;
+    font-family:var(--font);font-weight:600;line-height:1.08;
+    margin:0 0 .6rem 0;letter-spacing:-0.01em;color:var(--ink);
   }
-  h1{font-size:clamp(2.1rem,7vw,4.4rem);}
-  h2{font-size:clamp(1.7rem,5vw,3rem);}
-  p{font-size:1rem;line-height:1.6;color:var(--ink);opacity:.86;max-width:46ch;font-weight:400;}
+  h1{font-size:clamp(2.1rem,6.4vw,3.9rem);}
+  h2{font-size:clamp(1.7rem,4.6vw,2.7rem);}
+  p{font-size:1rem;line-height:1.62;color:var(--ink);opacity:.82;max-width:48ch;font-weight:400;}
+  p.lead{font-weight:600;opacity:1;}
   .eyebrow{
-    font-family:var(--font);
-    font-size:.78rem;
-    color:var(--accent);
-    font-weight:600;
-    margin-bottom:1rem;
-    letter-spacing:.01em;
+    font-size:.78rem;color:var(--accent);font-weight:600;
+    margin-bottom:.9rem;letter-spacing:.02em;text-transform:uppercase;
   }
 
-  /* ---------- Nav dots ---------- */
   nav.dots{
-    position:fixed;
-    right:max(12px, env(safe-area-inset-right));
-    top:50%;
-    transform:translateY(-50%);
-    z-index:50;
-    display:flex;
-    flex-direction:column;
-    gap:6px;
+    position:fixed;right:max(12px, env(safe-area-inset-right));top:50%;
+    transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:6px;
   }
   nav.dots button{
-    width:34px;height:34px;
-    display:flex;align-items:center;justify-content:center;
-    border:none;
-    background:transparent;
-    cursor:pointer;
-    padding:0;
+    width:34px;height:34px;display:flex;align-items:center;justify-content:center;
+    border:none;background:transparent;cursor:pointer;padding:0;
   }
   nav.dots button::before{
-    content:"";
-    width:9px;height:9px;border-radius:50%;
-    border:1.5px solid var(--ink);
-    opacity:.4;
-    transition:opacity .25s, background .25s, transform .25s;
-    display:block;
+    content:"";width:9px;height:9px;border-radius:50%;border:1.5px solid var(--ink);
+    opacity:.4;transition:opacity .25s, background .25s, transform .25s;display:block;
   }
-  nav.dots button.active::before{
-    background:var(--ink);
-    opacity:1;
-    transform:scale(1.15);
-  }
-  #cover ~ * nav.dots button::before, .on-dark button::before{border-color:#fff;}
-  nav.dots.on-dark button.active::before{background:#fff;}
-  nav.dots.on-dark button::before{border-color:rgba(255,255,255,.8);}
+  nav.dots button.active::before{background:var(--ink);opacity:1;transform:scale(1.15);}
 
   .brandmark{
-    position:absolute;
-    top:max(20px, env(safe-area-inset-top));
-    left:clamp(20px,6vw,96px);
-    z-index:5;
-    font-family:var(--font);
-    font-weight:600;
-    font-size:1rem;
-    color:#fff;
-    letter-spacing:-.01em;
+    position:absolute;top:max(24px, env(safe-area-inset-top));right:clamp(20px,6vw,96px);
+    z-index:5;text-align:right;
   }
-  .brandmark sup{font-size:.6em;}
+  .brandmark .logo{font-weight:700;font-size:1.15rem;color:var(--ink);letter-spacing:-.01em;}
+  .brandmark .logo sup{font-size:.55em;}
+  .brandmark .tag{font-size:.62rem;color:var(--accent);font-weight:500;margin-top:2px;}
 
-  /* ---------- Section 1: Cover ---------- */
-  #cover{background:var(--ink);color:#fdfcf9;}
-  #cover h1{color:#fdfcf9;}
-  #cover .eyebrow{color:#B9C9E8;}
-  #cover p{color:#dfe6f0;opacity:.92;}
-  .badge{
-    display:inline-flex;
-    align-items:baseline;
-    gap:.4em;
-    background:var(--mint);
-    color:#0f2c1c;
-    padding:.55rem 1.1rem;
-    border-radius:2px;
-    font-size:.88rem;
-    font-weight:600;
-    margin-top:1.4rem;
+  /* ---------- Shared visual composition ---------- */
+  .visual-stack{position:relative;width:100%;max-width:340px;justify-self:center;}
+  .bg-shape{position:absolute;z-index:0;opacity:.9;}
+  .keyvisual-img{
+    position:relative;z-index:1;width:100%;aspect-ratio:4/5;object-fit:cover;
+    border-radius:8px;background:#dadcdb;
   }
-  .badge sup{font-size:.7em;font-weight:500;}
+  .badge-img{position:absolute;display:block;z-index:3;width:min(110px,30vw);height:auto;transform:rotate(-9deg);
+    filter:drop-shadow(0 10px 20px rgba(0,0,0,.18));overflow:visible;}
+  .phone-img{position:relative;z-index:2;width:100%;}
+
+  /* ---------- Section: Cover ---------- */
+  #cover{background:var(--grey-bg);}
+  #cover .visual-stack{margin-top:8px;}
+  #cover .bg-shape{width:65%;left:-14%;top:38%;}
+  #cover .phone-img{position:absolute;width:min(150px,42vw);left:-10%;bottom:-14%;}
+  #cover .badge-img{right:-8%;bottom:-10%;}
+  .accent-word{color:var(--accent);}
+  .small-word{font-size:.52em;font-weight:500;color:var(--ink);}
+  .indent-line{display:block;padding-left:.7em;}
+
+  /* ---------- Section: Problem ---------- */
+  #problem .visual-stack{max-width:270px;}
+  #problem .bg-shape{width:120%;left:-24%;top:18%;}
+  #problem .badge-img{width:min(84px,24vw);left:-10%;bottom:-8%;transform:rotate(-8deg);}
+
+  /* ---------- Section: Benefits ---------- */
+  #benefits .inner{grid-template-columns:1fr;max-width:1040px;}
+  .benefit-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:44px;row-gap:22px;}
+  .benefit{display:flex;gap:14px;align-items:flex-start;}
+  .benefit img.chk{width:40px;flex:none;margin-top:2px;}
+  .benefit .h{font-weight:600;font-size:.98rem;margin-bottom:3px;color:var(--ink);}
+  .benefit .d{font-size:.83rem;color:var(--ink);opacity:.78;line-height:1.5;max-width:38ch;font-weight:400;}
+  .qr-row{display:flex;align-items:center;gap:12px;margin-top:30px;justify-content:flex-end;}
+  .qr-row img{width:52px;height:52px;flex:none;}
+  .qr-label{font-size:.78rem;font-weight:600;color:var(--ink);line-height:1.3;}
+
+  /* ---------- Section: Steps ---------- */
+  #steps .inner{grid-template-columns:0.95fr 1.05fr;align-items:start;padding-top:4vh;}
+  .step-imgs img{width:100%;margin-bottom:12px;}
+  .steps-right{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start;}
+  .steps-right h2{font-size:clamp(1.4rem,3vw,1.9rem);margin-top:0;}
+  .steps-right .txt-col p{font-size:.86rem;margin-bottom:.8rem;}
+  .steps-right .visual-stack{max-width:210px;}
+  .steps-right .photo-img{width:100%;border-radius:4px;}
+  .company-line{font-size:.66rem;color:var(--ink);opacity:.6;margin-top:14px;}
+
+  .footer-legal{position:absolute;bottom:0;left:0;right:0;padding:0 clamp(20px,6vw,96px) max(16px, env(safe-area-inset-bottom));}
+  .footer-legal p{max-width:none;font-size:.58rem;opacity:.5;line-height:1.55;margin:0;font-weight:400;}
+
   .cta-arrow{
-    position:absolute;
-    bottom:max(22px, env(safe-area-inset-bottom));
-    left:50%;
-    transform:translateX(-50%);
-    color:#B9C9E8;
-    font-size:.74rem;
-    text-align:center;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:6px;
+    position:absolute;bottom:max(20px, env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);
+    color:var(--accent);font-size:.72rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;
   }
-  .cta-arrow .line{width:1px;height:22px;background:#B9C9E8;animation:pulse 1.8s ease-in-out infinite;}
+  .cta-arrow .line{width:1px;height:20px;background:var(--accent);animation:pulse 1.8s ease-in-out infinite;}
   @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
-
-  /* Phone mockup shared */
-  .phone{
-    background:#ffffff;
-    border-radius:22px;
-    box-shadow:0 30px 60px rgba(0,0,0,.28);
-    padding:14px 14px 20px;
-    width:min(280px,74vw);
-    justify-self:center;
-    border:1px solid rgba(255,255,255,.08);
-  }
-  .phone-head{
-    display:flex;justify-content:space-between;align-items:center;
-    font-family:var(--font);font-weight:600;color:var(--ink);font-size:.92rem;
-    padding:2px 4px 12px;border-bottom:1px solid var(--line);
-  }
-  .phone-head span.help{font-weight:600;font-size:.66rem;color:var(--accent);}
-  .phone-row{
-    display:flex;gap:10px;align-items:flex-start;
-    padding:12px 4px;border-bottom:1px solid var(--line);
-  }
-  .phone-row:last-child{border-bottom:none;}
-  .phone-icon{
-    width:30px;height:30px;border-radius:50%;
-    background:var(--accent-bg);flex:none;
-    display:flex;align-items:center;justify-content:center;
-    color:var(--accent);font-size:.85rem;
-  }
-  .phone-row .t{font-size:.64rem;color:var(--accent);font-weight:600;margin-bottom:2px;}
-  .phone-row .d{font-size:.76rem;color:var(--ink);line-height:1.3;font-weight:500;}
-  .phone-row .m{font-size:.64rem;color:var(--ink);opacity:.55;margin-top:2px;}
-
-  /* ---------- Section 2: Problem ---------- */
-  #problem{background:var(--paper);}
-  .stat-panel{
-    background:var(--ink);
-    color:#fdfcf9;
-    border-radius:2px;
-    padding:clamp(24px,4vw,44px);
-    position:relative;
-  }
-  .stat-panel .stat{font-family:var(--font);font-weight:700;font-size:clamp(2.6rem,6vw,4.6rem);line-height:1;margin-bottom:.3rem;}
-  .stat-panel .stat-label{font-size:.9rem;color:#c9d6e8;max-width:32ch;line-height:1.55;font-weight:400;}
-  .stat-panel .divider{height:1px;background:rgba(255,255,255,.18);margin:1.5rem 0;}
-  .stat-panel .source{font-size:.68rem;color:#93a9c8;}
-
-  /* ---------- Section 3: Benefits ---------- */
-  #benefits{background:var(--ink);color:#fdfcf9;}
-  #benefits .inner{grid-template-columns:0.75fr 1.25fr;}
-  #benefits h2{color:#fdfcf9;}
-  #benefits .eyebrow{color:#B9C9E8;}
-  #benefits p.lead{color:#dfe6f0;opacity:.92;}
-  .benefit-list{display:flex;flex-direction:column;gap:0;}
-  .benefit{
-    display:flex;gap:14px;
-    padding:14px 0;
-    border-bottom:1px solid rgba(255,255,255,.16);
-  }
-  .benefit:first-child{padding-top:0;}
-  .check{
-    flex:none;width:22px;height:22px;border-radius:50%;
-    border:1.5px solid var(--mint);
-    display:flex;align-items:center;justify-content:center;
-    margin-top:2px;
-  }
-  .check svg{width:11px;height:11px;}
-  .benefit .h{font-family:var(--font);font-weight:600;font-size:1.02rem;margin-bottom:2px;color:#fdfcf9;}
-  .benefit .d{font-size:.84rem;color:#c9d6e8;line-height:1.5;max-width:52ch;font-weight:400;}
-
-  /* ---------- Section 4: Steps / CTA ---------- */
-  #steps{background:var(--paper);}
-  #steps .inner{grid-template-columns:1fr 0.85fr;align-items:start;padding-top:6vh;}
-  .step{
-    display:flex;gap:16px;align-items:flex-start;
-    padding:14px 0;
-    border-bottom:1px solid var(--line);
-  }
-  .step:first-child{padding-top:0;}
-  .step:last-of-type{border-bottom:none;}
-  .step-n{
-    font-family:var(--font);font-weight:700;font-size:1.3rem;color:var(--accent);
-    flex:none;width:2ch;
-  }
-  .step .h{font-size:.96rem;font-weight:600;margin-bottom:2px;}
-  .step .d{font-size:.84rem;opacity:.75;line-height:1.4;font-weight:400;}
-  .contact-panel{
-    background:var(--accent-bg);
-    border-radius:2px;
-    padding:clamp(22px,3.4vw,34px);
-  }
-  .contact-panel .k{font-size:.76rem;color:var(--accent);font-weight:600;margin-bottom:.3rem;}
-  .contact-panel .v{font-family:var(--font);font-weight:600;font-size:1.1rem;margin-bottom:1.2rem;color:var(--ink);}
-  .contact-panel .badge-inline{
-    display:inline-block;background:var(--mint-soft);color:#1c4530;
-    font-size:.74rem;font-weight:600;padding:.4rem .7rem;border-radius:2px;margin-top:.4rem;
-  }
-  .footer-legal{
-    position:absolute;
-    bottom:0;left:0;right:0;
-    padding:0 clamp(20px,6vw,96px) max(18px, env(safe-area-inset-bottom));
-  }
-  .footer-legal p{max-width:none;font-size:.6rem;opacity:.55;line-height:1.55;margin:0;font-weight:400;}
 
   /* ---------- Mobile: horizontal swipe paging ---------- */
   @media (max-width:760px){
-    .scroller{
-      display:flex;
-      flex-direction:row;
-      overflow-x:scroll;
-      overflow-y:hidden;
-      scroll-snap-type:x mandatory;
-    }
+    .scroller{display:flex;flex-direction:row;overflow-x:scroll;overflow-y:hidden;scroll-snap-type:x mandatory;}
     nav.dots{flex-direction:row;top:auto;bottom:max(10px, env(safe-area-inset-bottom));right:50%;transform:translateX(50%);gap:2px;}
-    .brandmark{font-size:.9rem;}
     section{
-      flex:0 0 100vw;
-      width:100vw;
-      align-items:flex-start;
-      overflow-y:auto;
-      overflow-x:hidden;
-      -webkit-overflow-scrolling:touch;
-      padding-top:76px;padding-bottom:64px;
+      flex:0 0 100vw;width:100vw;align-items:flex-start;
+      overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;
+      padding-top:88px;padding-bottom:56px;
     }
-    .inner, #benefits .inner, #steps .inner{grid-template-columns:1fr !important;padding-top:0;}
-    .phone{margin-top:8px;width:min(260px,72vw);}
-    #cover .inner{gap:28px;}
+    .inner, .steps-right{grid-template-columns:1fr !important;}
+    #steps .inner{padding-top:0;}
+    .visual-stack{margin:22px auto 0;max-width:230px !important;}
+    #cover .phone-img{width:min(130px,38vw);}
+    .benefit-grid{grid-template-columns:1fr;row-gap:20px;}
+    .qr-row{justify-content:flex-start;margin-top:24px;}
     #steps{flex-direction:column;align-items:stretch;justify-content:flex-start;}
     #steps .inner{flex:none;}
-    .footer-legal{position:static;margin-top:auto;padding-top:22px;padding-left:0;padding-right:0;}
+    .footer-legal{position:static;margin-top:auto;padding-top:20px;padding-left:0;padding-right:0;}
     .cta-arrow{display:none;}
-    h1{font-size:clamp(2rem,9vw,2.6rem);}
-    h2{font-size:clamp(1.6rem,7vw,2.1rem);}
+    .brandmark{top:max(18px, env(safe-area-inset-top));right:16px;}
+    .brandmark .logo{font-size:1rem;}
+    h1{font-size:clamp(2rem,9vw,2.5rem);}
+    h2{font-size:clamp(1.5rem,7vw,2rem);}
   }
 
   button:focus-visible, a:focus-visible{outline:2px solid var(--mint);outline-offset:3px;}
@@ -314,32 +187,72 @@
 
   <!-- SECTION 1 — COVER -->
   <section id="cover">
-    <div class="brandmark">edupression<sup>®</sup></div>
+    <div class="brandmark">
+      <div class="logo">edupression<sup>®</sup></div>
+      <div class="tag">Die digitale Therapie bei Depression</div>
+    </div>
     <div class="inner">
-      <div>
-        <div class="eyebrow">Digitale Therapie bei Depression</div>
-        <h1>Starten<br>statt warten<br>mit edupression<sup>®</sup></h1>
-        <p>Evidenzbasierte digitale Therapie für Erwachsene mit leichter oder mittelschwerer unipolarer Depression — als Überbrückung bis zur Psychotherapie oder ergänzend zu einer laufenden Behandlung.</p>
-        <div class="badge">NEU · kassenzulässig seit 1. Juli 2026<sup>a</sup></div>
+      <div class="cover-text">
+        <h1>Starten<span class="indent-line"><span class="small-word">statt</span> <span class="accent-word">warten</span></span><span class="indent-line accent-word">mit edupression<sup>®</sup></span></h1>
       </div>
-      <div class="phone">
-        <div class="phone-head">Hallo Claudia! <span class="help">Hilfe Tipps</span></div>
-        <div class="phone-row">
-          <div class="phone-icon">▶</div>
-          <div>
-            <div class="t">Meine 18. Therapieeinheit</div>
-            <div class="d">Neuroedukation für einen besseren Krankheitsverlauf</div>
-            <div class="m">4 min</div>
-          </div>
-        </div>
-        <div class="phone-row">
-          <div class="phone-icon">◐</div>
-          <div>
-            <div class="t">Meine 17. Therapieeinheit</div>
-            <div class="d">Welche Symptome bessern sich oft langsamer?</div>
-            <div class="m">9 min</div>
-          </div>
-        </div>
+      <div class="visual-stack">
+        <img class="bg-shape" src="assets/blue_bar_small.svg" alt="">
+        <img class="keyvisual-img" src="assets/SER_Edu_Keyvisual_edit.jpg" alt="Patientin mit dem Kopf in den Händen">
+        <img class="phone-img" src="assets/App_screen2_Claudia.png" alt="edupression App: Meine 18. Therapieeinheit">
+        <svg class="badge-img" role="img" aria-label="NEU kassenzulaessig seit 1. Juli 2026" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 142.74 142.7">
+  <defs>
+    <style>
+      .st0 {
+        fill: #fff;
+      }
+
+      .st1 {
+        fill: #52ba69;
+      }
+    </style>
+  </defs>
+  <path class="st1" d="M80.62,141.61c38.8-5.11,66.12-40.71,61.01-79.51C136.52,23.3,100.92-4.02,62.12,1.09,23.32,6.2-4,41.8,1.11,80.6c5.11,38.8,40.71,66.12,79.51,61.01"/>
+  <g>
+    <path class="st0" d="M64.1,52.81l-2.63.35-5.27-6.08.88,6.65-2.63.35-1.42-10.79,2.63-.35,5.28,6.11-.88-6.68,2.63-.35,1.42,10.79Z"/>
+    <path class="st0" d="M67.49,43.53l.29,2.18,3.52-.46.27,2.03-3.52.46.31,2.37,3.98-.52.28,2.11-6.61.87-1.42-10.79,6.61-.87.28,2.11-3.98.52Z"/>
+    <path class="st0" d="M75.48,40.34l.85,6.45c.08.65.31,1.12.67,1.43.36.31.85.42,1.47.34.62-.08,1.06-.32,1.35-.71.28-.39.38-.91.29-1.56l-.85-6.45,2.63-.35.85,6.44c.13.96.03,1.8-.29,2.52-.32.72-.81,1.29-1.45,1.72-.65.43-1.4.7-2.25.81-.85.11-1.63.05-2.35-.2-.71-.25-1.31-.68-1.79-1.3-.48-.62-.78-1.41-.91-2.37l-.85-6.44,2.63-.35Z"/>
+  </g>
+  <g>
+    <path class="st0" d="M20.95,79.18l-3.95-3.31.5,3.76-1.08.14-1.5-11.37,1.08-.14.89,6.73,2.89-4.19,1.51-.2-3.43,4.7,4.57,3.68-1.46.19Z"/>
+    <path class="st0" d="M22.96,72.32c.26-.7.67-1.26,1.23-1.69.56-.43,1.23-.7,2-.8.8-.1,1.51-.01,2.14.28.63.29,1.11.71,1.44,1.25l-.24-1.84,1.08-.14,1.1,8.39-1.08.14-.25-1.86c-.19.61-.55,1.14-1.08,1.59-.53.45-1.19.73-1.99.83-.76.1-1.47.01-2.12-.27-.66-.28-1.2-.72-1.63-1.33-.43-.61-.7-1.35-.82-2.21-.11-.86-.04-1.64.22-2.33ZM29.43,71.98c-.34-.48-.77-.82-1.29-1.04-.51-.21-1.06-.28-1.63-.21-.59.08-1.11.28-1.55.61-.44.33-.76.76-.96,1.31-.21.54-.26,1.16-.17,1.86.09.69.3,1.27.64,1.75.34.48.76.83,1.27,1.04.51.21,1.06.28,1.65.2.57-.08,1.08-.28,1.52-.62.44-.34.77-.78.97-1.33.21-.55.27-1.16.18-1.84s-.31-1.25-.65-1.73Z"/>
+    <path class="st0" d="M34.62,76.82c-.67-.37-1.09-.93-1.26-1.69l1.11-.15c.11.46.39.82.82,1.06.43.24.98.32,1.65.23.58-.08,1.02-.28,1.32-.6s.42-.69.36-1.1c-.04-.29-.16-.51-.37-.67-.21-.16-.46-.28-.76-.35-.3-.07-.69-.14-1.19-.19-.65-.08-1.17-.18-1.58-.29-.41-.11-.77-.31-1.09-.6-.31-.29-.51-.7-.58-1.24-.05-.41.02-.8.22-1.19.2-.38.51-.7.93-.97.42-.26.92-.43,1.5-.51.9-.12,1.66.01,2.27.4s.99.97,1.14,1.77l-1.08.14c-.1-.49-.34-.86-.73-1.12-.39-.26-.9-.34-1.51-.26-.54.07-.97.26-1.27.56s-.43.64-.38,1.02c.04.33.18.58.41.77.23.18.5.32.81.39.31.08.73.16,1.25.23.63.08,1.13.18,1.51.29.38.11.72.29,1.01.55.29.26.48.64.55,1.13.06.45-.01.87-.21,1.25-.2.39-.51.71-.92.97-.41.26-.91.43-1.48.51-.96.13-1.78,0-2.45-.36Z"/>
+    <path class="st0" d="M42.46,75.79c-.67-.37-1.09-.93-1.26-1.69l1.11-.15c.11.46.39.82.82,1.06.43.24.98.32,1.65.23.58-.08,1.02-.28,1.32-.6.3-.32.42-.69.36-1.1-.04-.29-.16-.51-.37-.67-.21-.16-.46-.28-.76-.35-.3-.07-.69-.14-1.19-.19-.65-.08-1.17-.18-1.59-.29-.41-.11-.77-.31-1.09-.6-.32-.29-.51-.7-.58-1.25-.05-.41.02-.8.22-1.19.2-.38.51-.7.94-.97.42-.26.92-.43,1.5-.51.9-.12,1.66.01,2.27.4.61.38.99.97,1.14,1.77l-1.08.14c-.1-.49-.34-.86-.73-1.12-.39-.26-.9-.34-1.51-.26-.54.07-.97.26-1.27.56-.3.3-.43.64-.38,1.02.04.33.18.58.41.77.23.18.5.32.81.39.31.08.73.16,1.25.23.63.08,1.13.18,1.51.29.38.11.72.29,1.01.55s.48.64.55,1.13c.06.45-.01.87-.21,1.25-.2.39-.51.71-.92.97-.41.26-.91.43-1.48.51-.96.13-1.78,0-2.45-.36Z"/>
+    <path class="st0" d="M56.9,70.6l-6.96.92c.12.63.34,1.15.68,1.57.34.41.74.71,1.23.88.48.17.99.22,1.52.15.7-.09,1.26-.34,1.69-.74.43-.4.69-.9.76-1.49l1.14-.15c-.1.85-.45,1.57-1.05,2.18-.6.61-1.41.98-2.43,1.11-.79.1-1.52.02-2.19-.25-.67-.27-1.23-.71-1.67-1.31-.44-.6-.71-1.34-.83-2.21-.11-.87-.04-1.66.22-2.36.26-.7.68-1.27,1.26-1.7s1.27-.7,2.07-.8c.8-.11,1.52-.02,2.17.25.65.27,1.17.68,1.57,1.22.4.55.65,1.18.74,1.9.05.37.08.65.08.85ZM55.14,68.31c-.32-.41-.72-.69-1.2-.86-.48-.17-.99-.21-1.52-.14-.8.1-1.45.45-1.94,1.04-.5.59-.71,1.35-.65,2.29l5.9-.78c-.07-.63-.27-1.14-.59-1.55Z"/>
+    <path class="st0" d="M64.79,65.66c.72.54,1.15,1.39,1.31,2.57l.65,4.92-1.06.14-.63-4.79c-.12-.91-.44-1.58-.96-2-.52-.42-1.17-.58-1.96-.48-.81.11-1.42.45-1.83,1.02s-.56,1.36-.42,2.35l.6,4.58-1.08.14-1.1-8.39,1.08-.14.19,1.43c.2-.55.53-.99,1-1.33.47-.34,1.02-.55,1.65-.63,1-.13,1.86.07,2.58.61Z"/>
+    <path class="st0" d="M69.57,71.87l4.39-.58.12.89-5.62.74-.12-.89,3.45-7.18-4.24.56-.12-.89,5.47-.72.12.89-3.45,7.18Z"/>
+    <path class="st0" d="M82.06,62.6l1.1,8.39-1.08.14-.19-1.48c-.18.56-.5,1-.98,1.35-.48.34-1.03.56-1.67.64-1,.13-1.86-.07-2.58-.61-.72-.54-1.15-1.39-1.31-2.57l-.64-4.9,1.06-.14.63,4.78c.12.91.44,1.58.96,2,.52.42,1.17.58,1.96.48.81-.11,1.42-.45,1.83-1.02.41-.58.56-1.36.43-2.35l-.6-4.56,1.08-.14Z"/>
+    <path class="st0" d="M85.21,59.15l1.5,11.37-1.08.14-1.5-11.37,1.08-.14Z"/>
+    <path class="st0" d="M88.32,63.72c.26-.7.67-1.26,1.23-1.69.56-.43,1.23-.7,2-.8.8-.11,1.51-.01,2.14.28.63.29,1.11.71,1.44,1.25l-.24-1.84,1.08-.14,1.1,8.39-1.08.14-.25-1.86c-.19.61-.55,1.14-1.08,1.59-.53.45-1.19.73-1.99.83-.76.1-1.47.01-2.12-.27-.66-.28-1.2-.72-1.63-1.33-.43-.61-.7-1.35-.81-2.21s-.04-1.64.22-2.33ZM94.78,63.38c-.34-.48-.77-.82-1.29-1.04-.51-.21-1.06-.28-1.63-.21-.59.08-1.11.28-1.55.61-.44.33-.76.76-.96,1.31-.21.54-.26,1.16-.17,1.86.09.69.31,1.27.64,1.75.34.48.76.83,1.27,1.04.51.21,1.06.28,1.65.2.57-.08,1.08-.28,1.52-.62.44-.34.76-.78.97-1.33.21-.55.27-1.16.18-1.84s-.31-1.25-.65-1.73ZM90.17,60.11c-.16-.12-.25-.28-.27-.47-.03-.19.02-.37.14-.53.12-.16.28-.25.47-.27.19-.03.37.02.53.14.16.12.25.28.27.47.03.19-.02.37-.14.53-.12.16-.28.25-.47.27-.2.03-.37-.02-.53-.14ZM92.54,59.8c-.16-.12-.25-.28-.27-.47-.03-.19.02-.37.14-.53.12-.16.28-.25.47-.27.19-.03.37.02.52.14.15.12.24.28.27.47.03.19-.02.37-.13.53-.11.16-.27.25-.46.27-.2.03-.37-.02-.53-.14Z"/>
+    <path class="st0" d="M99.98,68.22c-.67-.37-1.09-.93-1.26-1.69l1.11-.15c.11.46.39.82.82,1.06.43.24.98.32,1.65.23.58-.08,1.02-.28,1.32-.6s.42-.69.36-1.1c-.04-.29-.16-.51-.37-.67-.21-.16-.46-.28-.76-.35s-.69-.14-1.19-.19c-.65-.08-1.17-.18-1.59-.29-.41-.11-.77-.31-1.09-.6-.32-.29-.51-.7-.58-1.24-.05-.41.02-.8.22-1.19.2-.38.51-.7.94-.97.42-.26.92-.43,1.5-.51.9-.12,1.66.01,2.27.4.61.38.99.97,1.14,1.77l-1.08.14c-.1-.49-.34-.86-.73-1.11-.39-.26-.9-.34-1.51-.26-.54.07-.97.26-1.27.56s-.43.64-.38,1.02c.04.33.18.58.41.77s.5.32.81.39.73.16,1.25.23c.63.08,1.13.18,1.51.29.38.11.72.29,1.01.55.29.26.48.64.55,1.13.06.45,0,.87-.21,1.25-.2.39-.51.71-.92.97-.41.26-.91.43-1.48.51-.96.13-1.78,0-2.45-.36Z"/>
+    <path class="st0" d="M107.81,67.19c-.67-.37-1.09-.93-1.26-1.69l1.11-.15c.11.46.39.82.82,1.06.43.24.98.32,1.65.23.58-.08,1.02-.28,1.32-.6.3-.32.42-.69.36-1.1-.04-.29-.16-.51-.37-.67-.21-.16-.46-.28-.76-.35-.3-.07-.69-.14-1.19-.19-.65-.08-1.17-.18-1.58-.29-.41-.11-.77-.31-1.09-.6-.32-.29-.51-.7-.58-1.25-.05-.41.02-.8.22-1.19.2-.38.51-.7.94-.97.42-.26.92-.43,1.5-.51.9-.12,1.66.01,2.27.4.61.38.99.97,1.14,1.77l-1.08.14c-.09-.49-.34-.86-.73-1.12-.39-.26-.9-.34-1.51-.26-.54.07-.97.26-1.27.56-.3.3-.43.64-.38,1.02.04.33.18.58.41.77.23.18.5.32.81.39.31.08.73.16,1.25.23.63.08,1.13.18,1.51.29s.72.29,1.01.55c.29.26.48.64.55,1.13.06.45-.01.87-.21,1.25-.2.39-.5.71-.92.97-.42.26-.91.43-1.48.51-.96.13-1.78,0-2.45-.36Z"/>
+    <path class="st0" d="M113.84,56.57c-.17-.13-.28-.31-.31-.54-.03-.23.02-.42.16-.59.13-.17.31-.27.52-.3.21-.03.41.02.58.15.17.13.27.31.3.53.03.23-.02.43-.16.6-.13.17-.31.28-.52.3-.22.03-.41-.02-.58-.16ZM115.17,58.24l1.1,8.39-1.08.14-1.1-8.39,1.08-.14Z"/>
+    <path class="st0" d="M123.24,57.61c.63.29,1.11.7,1.45,1.23l-.24-1.83,1.07-.14,1.13,8.61c.1.77.02,1.47-.23,2.11s-.66,1.16-1.21,1.56c-.55.4-1.21.65-1.97.75-1.08.14-2,0-2.78-.42-.78-.42-1.31-1.06-1.6-1.91l1.06-.14c.26.56.67.98,1.24,1.26.56.28,1.22.37,1.97.27.54-.07,1.01-.25,1.41-.54.4-.29.69-.67.88-1.16.19-.48.24-1.03.16-1.65l-.27-2.07c-.19.61-.55,1.14-1.08,1.59-.53.45-1.19.73-1.98.83-.77.1-1.48.01-2.14-.27-.66-.28-1.2-.72-1.63-1.33-.43-.61-.7-1.35-.81-2.21-.11-.86-.04-1.64.22-2.33s.67-1.26,1.23-1.69c.56-.43,1.23-.7,2-.8.79-.1,1.5,0,2.13.28ZM124.35,59.48c-.34-.48-.77-.82-1.29-1.04-.51-.21-1.06-.28-1.63-.21-.59.08-1.11.28-1.55.61-.44.33-.76.76-.96,1.31-.2.54-.26,1.16-.17,1.86.09.69.31,1.27.64,1.75.34.48.76.83,1.27,1.04.51.21,1.06.28,1.65.2.57-.08,1.08-.28,1.52-.62.44-.34.76-.78.97-1.33.21-.55.27-1.16.18-1.84s-.31-1.25-.65-1.73Z"/>
+  </g>
+  <g>
+    <path class="st0" d="M16.97,99.83c-.67-.36-1.09-.93-1.26-1.69l1.11-.15c.11.46.38.82.82,1.06.43.24.98.32,1.65.23.58-.08,1.02-.28,1.32-.6.3-.32.42-.69.36-1.1-.04-.29-.16-.51-.37-.67-.21-.16-.46-.28-.76-.35-.3-.07-.69-.14-1.19-.19-.65-.08-1.17-.18-1.58-.29-.41-.11-.77-.31-1.09-.6-.31-.29-.51-.7-.58-1.24-.05-.41.02-.8.22-1.19.2-.38.51-.7.93-.97.42-.26.92-.43,1.5-.51.9-.12,1.66.01,2.27.4.61.38.99.97,1.14,1.77l-1.08.14c-.1-.49-.34-.86-.73-1.12-.39-.26-.9-.34-1.51-.26-.54.07-.97.26-1.27.56-.3.3-.43.64-.38,1.02.04.33.18.58.41.77.23.18.5.31.81.39.31.08.73.16,1.25.23.63.08,1.13.18,1.51.29.38.11.72.29,1.01.55.29.26.48.64.55,1.13.06.45-.01.87-.21,1.26-.2.39-.51.71-.92.97-.41.26-.91.43-1.48.51-.96.13-1.78,0-2.45-.36Z"/>
+    <path class="st0" d="M31.41,94.64l-6.96.92c.11.63.34,1.15.67,1.57s.74.71,1.23.88c.48.17.99.22,1.52.15.7-.09,1.26-.34,1.69-.74.43-.4.69-.9.76-1.49l1.14-.15c-.1.85-.45,1.57-1.05,2.18-.6.61-1.41.98-2.43,1.11-.79.1-1.52.02-2.19-.25-.67-.27-1.23-.71-1.67-1.31-.44-.6-.72-1.34-.83-2.21-.11-.87-.04-1.66.22-2.36.26-.7.68-1.27,1.26-1.7.58-.43,1.27-.7,2.07-.8.8-.1,1.52-.02,2.17.25.65.27,1.17.68,1.57,1.22.4.55.65,1.18.74,1.9.05.37.08.65.08.85ZM29.65,92.35c-.32-.41-.72-.69-1.2-.86-.48-.17-.99-.21-1.52-.14-.8.11-1.45.45-1.94,1.04s-.71,1.35-.65,2.29l5.9-.78c-.07-.63-.27-1.14-.59-1.55Z"/>
+    <path class="st0" d="M32.55,87.95c-.17-.13-.28-.31-.31-.54-.03-.23.02-.42.16-.59.13-.17.31-.27.52-.3s.41.02.58.15c.17.13.27.3.3.53.03.23-.02.43-.16.6-.13.17-.31.27-.52.3s-.41-.02-.58-.16ZM33.88,89.62l1.11,8.39-1.08.14-1.11-8.39,1.08-.14Z"/>
+    <path class="st0" d="M37.84,90.02l.69,5.21c.07.51.21.85.43,1.02.22.17.58.22,1.07.16l.98-.13.12.92-1.15.15c-.76.1-1.34,0-1.76-.31-.42-.3-.68-.86-.78-1.67l-.69-5.21-1.17.15-.12-.91,1.17-.15-.28-2.11,1.09-.14.28,2.11,2.31-.3.12.91-2.31.3Z"/>
+  </g>
+  <g>
+    <path class="st0" d="M44.66,87.36l-.26-1.98,3.7-.49,1.47,11.2-2.21.29-1.21-9.22-1.49.2Z"/>
+    <path class="st0" d="M51.9,95.53c-.28-.21-.45-.49-.49-.85-.05-.36.04-.67.26-.95.22-.27.52-.44.91-.49.38-.05.71.03.98.24s.44.49.49.85c.05.36-.04.67-.25.95-.21.27-.51.43-.89.48-.39.05-.73-.03-1.01-.24Z"/>
+    <path class="st0" d="M64.44,83.22l.99,7.53c.14,1.04-.06,1.9-.58,2.56s-1.3,1.05-2.31,1.19c-1.02.13-1.89-.05-2.6-.56-.71-.51-1.13-1.3-1.27-2.36l2.15-.28c.07.46.23.8.47,1.03s.57.32.96.26c.39-.05.67-.21.84-.49.17-.27.23-.62.17-1.05l-.99-7.53,2.17-.29Z"/>
+    <path class="st0" d="M75.27,84.05l1.12,8.51-2.17.29-.14-1.08c-.23.4-.55.74-.97,1.01-.42.27-.89.44-1.41.51-.67.09-1.27.02-1.82-.19-.55-.21-1.01-.58-1.37-1.09-.36-.51-.6-1.14-.7-1.9l-.66-4.99,2.15-.28.62,4.69c.09.68.33,1.17.71,1.49.39.32.87.44,1.45.36.59-.08,1.04-.32,1.33-.73.29-.41.39-.95.3-1.63l-.62-4.69,2.17-.29Z"/>
+    <path class="st0" d="M79.17,80.63l1.5,11.37-2.15.28-1.5-11.37,2.15-.28Z"/>
+    <path class="st0" d="M81.63,81.81c-.28-.21-.45-.49-.49-.85-.05-.36.04-.67.26-.95.22-.27.52-.44.9-.49.38-.05.71.03.99.24.28.21.45.49.49.85.05.36-.04.68-.26.95-.22.27-.52.44-.9.49-.38.05-.71-.03-.99-.24ZM83.82,82.92l1.12,8.51-2.15.28-1.12-8.51,2.15-.28Z"/>
+    <path class="st0" d="M90.83,88.19c.87-.95,1.57-1.74,2.08-2.36.51-.62.92-1.26,1.23-1.91.31-.65.43-1.25.35-1.83-.07-.52-.25-.92-.53-1.18-.29-.27-.68-.36-1.2-.3-.51.07-.88.29-1.12.67-.23.38-.31.87-.25,1.46l-2.09.28c-.12-1.23.12-2.22.73-2.94.61-.73,1.45-1.16,2.51-1.3,1.17-.15,2.11.04,2.81.58.71.54,1.13,1.31,1.26,2.33.1.8,0,1.59-.34,2.38-.33.78-.74,1.48-1.22,2.09-.48.61-1.12,1.35-1.91,2.23l4.53-.6.24,1.78-7.59,1-.21-1.6.71-.78Z"/>
+    <path class="st0" d="M98.95,79.51c.51-1.09,1.5-1.73,2.99-1.93,1.49-.2,2.62.17,3.39,1.09.77.92,1.27,2.27,1.51,4.04.23,1.78.1,3.22-.41,4.32-.51,1.1-1.5,1.75-2.99,1.94-1.49.2-2.62-.17-3.39-1.1-.77-.93-1.28-2.29-1.51-4.07-.23-1.77-.1-3.2.41-4.29ZM104.31,81.09c-.17-.5-.42-.9-.75-1.19-.34-.29-.79-.4-1.36-.32-.57.08-.99.3-1.23.66-.25.37-.39.81-.42,1.34s0,1.17.11,1.93c.1.78.23,1.43.4,1.94.16.52.41.92.75,1.2.34.28.8.39,1.37.31.57-.08.99-.29,1.24-.66.25-.36.39-.81.42-1.35.02-.54-.02-1.2-.12-1.98-.1-.76-.23-1.39-.4-1.89Z"/>
+    <path class="st0" d="M109.58,85.72c.88-.95,1.57-1.74,2.08-2.36.51-.63.92-1.26,1.23-1.91.31-.65.43-1.25.35-1.83-.07-.52-.25-.92-.53-1.18-.29-.27-.68-.36-1.2-.3-.51.07-.88.29-1.12.67-.23.38-.31.87-.25,1.46l-2.09.27c-.12-1.23.12-2.22.73-2.94s1.45-1.16,2.51-1.3c1.17-.15,2.11.04,2.81.58.71.54,1.13,1.31,1.26,2.33.1.8,0,1.59-.34,2.38-.33.78-.74,1.48-1.22,2.09-.48.61-1.12,1.35-1.91,2.23l4.53-.6.24,1.78-7.59,1-.21-1.6.71-.78Z"/>
+    <path class="st0" d="M122.08,77.01c-.28-.18-.65-.24-1.12-.18-.71.09-1.19.45-1.45,1.06s-.31,1.56-.15,2.84c.19-.44.51-.81.95-1.1.44-.29.94-.48,1.49-.55.67-.09,1.27-.02,1.82.2.55.22,1,.58,1.36,1.09.36.51.59,1.15.69,1.92.1.73.04,1.39-.18,2-.22.61-.59,1.11-1.11,1.5-.52.39-1.17.64-1.95.74-1.07.14-1.93.02-2.61-.38-.67-.39-1.18-.99-1.54-1.81s-.61-1.84-.77-3.08c-.25-1.88-.11-3.33.41-4.38.52-1.04,1.48-1.66,2.87-1.84,1.08-.14,1.95.04,2.62.55.67.51,1.11,1.19,1.32,2.05l-2,.26c-.16-.42-.38-.72-.66-.9ZM120.24,81.57c-.33.37-.45.85-.37,1.46.08.6.31,1.06.7,1.36.39.3.9.41,1.52.33.55-.07.97-.3,1.25-.68.28-.38.38-.86.3-1.43-.08-.59-.3-1.04-.66-1.35-.36-.31-.84-.42-1.44-.34-.54.07-.98.29-1.31.66Z"/>
+  </g>
+  <path class="st0" d="M126.36,74.9c.15-.41.39-.74.72-.99.33-.25.72-.41,1.16-.47.47-.06.88,0,1.25.16.37.17.65.41.84.73l-.14-1.08.63-.08.64,4.89-.63.08-.14-1.08c-.11.35-.32.66-.63.93-.31.26-.7.42-1.16.49-.44.06-.85,0-1.24-.16-.38-.16-.7-.42-.95-.78s-.41-.78-.47-1.29c-.07-.5-.02-.96.13-1.36ZM130.13,74.7c-.2-.28-.45-.48-.75-.6-.3-.12-.62-.17-.95-.12-.35.05-.65.17-.9.36-.25.19-.44.45-.56.76-.12.32-.15.68-.1,1.08.05.4.18.74.38,1.02.2.28.44.48.74.6.29.12.62.16.96.11.33-.04.63-.16.89-.36.26-.2.45-.46.57-.78.12-.32.16-.68.11-1.07-.05-.39-.18-.73-.38-1.01Z"/>
+</svg>
       </div>
     </div>
     <div class="cta-arrow">Weiterlesen<div class="line"></div></div>
@@ -350,16 +263,68 @@
     <div class="inner">
       <div>
         <div class="eyebrow">Die Ausgangslage</div>
-        <h2>Der Therapieplatz lässt auf sich warten?</h2>
-        <p>Das Angebot an Therapieplätzen reicht für die Nachfrage nach psychotherapeutischer Behandlung bei Depressionen oft nicht aus. Evidenzbasierte digitale Therapieansätze können die Versorgung ergänzen und Wartezeiten strukturiert überbrücken.<sup>3</sup></p>
+        <h2>Depression: Der Therapieplatz lässt auf sich warten?</h2>
+        <p class="lead">Das Angebot an Therapieplätzen reicht für die Nachfrage nach psychotherapeutischer Behandlung bei Depressionen oft nicht aus. Evidenzbasierte digitale Therapieansätze können die Versorgung ergänzen und Wartezeiten strukturiert überbrücken.<sup>3</sup></p>
         <p>edupression<sup>®</sup> bietet als digitale Gesundheitsanwendung (dGA) eine evidenzbasierte digitale Therapie für Erwachsene mit leichter oder mittelschwerer unipolarer Depression. Sie kombiniert Übungen auf Basis der kognitiven Verhaltenstherapie (KVT), Psychoedukation und Verlaufsmonitoring in einer Anwendung.</p>
         <p>Die Kosten werden bei entsprechender ärztlicher Verordnung und unter Einhaltung der MiGeL-Limitationen seit dem 1. Juli 2026 von der Grundversicherung übernommen.<sup>1</sup></p>
       </div>
-      <div class="stat-panel">
-        <div class="stat">0 Tage</div>
-        <div class="stat-label">Wartezeit bis zum Therapiestart nach ärztlicher Verordnung — edupression® überbrückt strukturiert bis zum Beginn einer Psychotherapie.</div>
-        <div class="divider"></div>
-        <div class="source">Quelle: BAG, KLV Anhang 2 / MiGeL, Ausgabe 1. Juli 2026, Ziffer 40.01.<sup>1</sup></div>
+      <div class="visual-stack">
+        <img class="bg-shape" src="assets/blue_bar_big.svg" alt="">
+        <img class="phone-img" src="assets/screen1.png" alt="edupression App: Heutige ToDo's">
+        <svg class="badge-img" role="img" aria-label="NEU kassenzulaessig seit 1. Juli 2026" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 142.74 142.7">
+  <defs>
+    <style>
+      .st0 {
+        fill: #fff;
+      }
+
+      .st1 {
+        fill: #52ba69;
+      }
+    </style>
+  </defs>
+  <path class="st1" d="M80.62,141.61c38.8-5.11,66.12-40.71,61.01-79.51C136.52,23.3,100.92-4.02,62.12,1.09,23.32,6.2-4,41.8,1.11,80.6c5.11,38.8,40.71,66.12,79.51,61.01"/>
+  <g>
+    <path class="st0" d="M64.1,52.81l-2.63.35-5.27-6.08.88,6.65-2.63.35-1.42-10.79,2.63-.35,5.28,6.11-.88-6.68,2.63-.35,1.42,10.79Z"/>
+    <path class="st0" d="M67.49,43.53l.29,2.18,3.52-.46.27,2.03-3.52.46.31,2.37,3.98-.52.28,2.11-6.61.87-1.42-10.79,6.61-.87.28,2.11-3.98.52Z"/>
+    <path class="st0" d="M75.48,40.34l.85,6.45c.08.65.31,1.12.67,1.43.36.31.85.42,1.47.34.62-.08,1.06-.32,1.35-.71.28-.39.38-.91.29-1.56l-.85-6.45,2.63-.35.85,6.44c.13.96.03,1.8-.29,2.52-.32.72-.81,1.29-1.45,1.72-.65.43-1.4.7-2.25.81-.85.11-1.63.05-2.35-.2-.71-.25-1.31-.68-1.79-1.3-.48-.62-.78-1.41-.91-2.37l-.85-6.44,2.63-.35Z"/>
+  </g>
+  <g>
+    <path class="st0" d="M20.95,79.18l-3.95-3.31.5,3.76-1.08.14-1.5-11.37,1.08-.14.89,6.73,2.89-4.19,1.51-.2-3.43,4.7,4.57,3.68-1.46.19Z"/>
+    <path class="st0" d="M22.96,72.32c.26-.7.67-1.26,1.23-1.69.56-.43,1.23-.7,2-.8.8-.1,1.51-.01,2.14.28.63.29,1.11.71,1.44,1.25l-.24-1.84,1.08-.14,1.1,8.39-1.08.14-.25-1.86c-.19.61-.55,1.14-1.08,1.59-.53.45-1.19.73-1.99.83-.76.1-1.47.01-2.12-.27-.66-.28-1.2-.72-1.63-1.33-.43-.61-.7-1.35-.82-2.21-.11-.86-.04-1.64.22-2.33ZM29.43,71.98c-.34-.48-.77-.82-1.29-1.04-.51-.21-1.06-.28-1.63-.21-.59.08-1.11.28-1.55.61-.44.33-.76.76-.96,1.31-.21.54-.26,1.16-.17,1.86.09.69.3,1.27.64,1.75.34.48.76.83,1.27,1.04.51.21,1.06.28,1.65.2.57-.08,1.08-.28,1.52-.62.44-.34.77-.78.97-1.33.21-.55.27-1.16.18-1.84s-.31-1.25-.65-1.73Z"/>
+    <path class="st0" d="M34.62,76.82c-.67-.37-1.09-.93-1.26-1.69l1.11-.15c.11.46.39.82.82,1.06.43.24.98.32,1.65.23.58-.08,1.02-.28,1.32-.6s.42-.69.36-1.1c-.04-.29-.16-.51-.37-.67-.21-.16-.46-.28-.76-.35-.3-.07-.69-.14-1.19-.19-.65-.08-1.17-.18-1.58-.29-.41-.11-.77-.31-1.09-.6-.31-.29-.51-.7-.58-1.24-.05-.41.02-.8.22-1.19.2-.38.51-.7.93-.97.42-.26.92-.43,1.5-.51.9-.12,1.66.01,2.27.4s.99.97,1.14,1.77l-1.08.14c-.1-.49-.34-.86-.73-1.12-.39-.26-.9-.34-1.51-.26-.54.07-.97.26-1.27.56s-.43.64-.38,1.02c.04.33.18.58.41.77.23.18.5.32.81.39.31.08.73.16,1.25.23.63.08,1.13.18,1.51.29.38.11.72.29,1.01.55.29.26.48.64.55,1.13.06.45-.01.87-.21,1.25-.2.39-.51.71-.92.97-.41.26-.91.43-1.48.51-.96.13-1.78,0-2.45-.36Z"/>
+    <path class="st0" d="M42.46,75.79c-.67-.37-1.09-.93-1.26-1.69l1.11-.15c.11.46.39.82.82,1.06.43.24.98.32,1.65.23.58-.08,1.02-.28,1.32-.6.3-.32.42-.69.36-1.1-.04-.29-.16-.51-.37-.67-.21-.16-.46-.28-.76-.35-.3-.07-.69-.14-1.19-.19-.65-.08-1.17-.18-1.59-.29-.41-.11-.77-.31-1.09-.6-.32-.29-.51-.7-.58-1.25-.05-.41.02-.8.22-1.19.2-.38.51-.7.94-.97.42-.26.92-.43,1.5-.51.9-.12,1.66.01,2.27.4.61.38.99.97,1.14,1.77l-1.08.14c-.1-.49-.34-.86-.73-1.12-.39-.26-.9-.34-1.51-.26-.54.07-.97.26-1.27.56-.3.3-.43.64-.38,1.02.04.33.18.58.41.77.23.18.5.32.81.39.31.08.73.16,1.25.23.63.08,1.13.18,1.51.29.38.11.72.29,1.01.55s.48.64.55,1.13c.06.45-.01.87-.21,1.25-.2.39-.51.71-.92.97-.41.26-.91.43-1.48.51-.96.13-1.78,0-2.45-.36Z"/>
+    <path class="st0" d="M56.9,70.6l-6.96.92c.12.63.34,1.15.68,1.57.34.41.74.71,1.23.88.48.17.99.22,1.52.15.7-.09,1.26-.34,1.69-.74.43-.4.69-.9.76-1.49l1.14-.15c-.1.85-.45,1.57-1.05,2.18-.6.61-1.41.98-2.43,1.11-.79.1-1.52.02-2.19-.25-.67-.27-1.23-.71-1.67-1.31-.44-.6-.71-1.34-.83-2.21-.11-.87-.04-1.66.22-2.36.26-.7.68-1.27,1.26-1.7s1.27-.7,2.07-.8c.8-.11,1.52-.02,2.17.25.65.27,1.17.68,1.57,1.22.4.55.65,1.18.74,1.9.05.37.08.65.08.85ZM55.14,68.31c-.32-.41-.72-.69-1.2-.86-.48-.17-.99-.21-1.52-.14-.8.1-1.45.45-1.94,1.04-.5.59-.71,1.35-.65,2.29l5.9-.78c-.07-.63-.27-1.14-.59-1.55Z"/>
+    <path class="st0" d="M64.79,65.66c.72.54,1.15,1.39,1.31,2.57l.65,4.92-1.06.14-.63-4.79c-.12-.91-.44-1.58-.96-2-.52-.42-1.17-.58-1.96-.48-.81.11-1.42.45-1.83,1.02s-.56,1.36-.42,2.35l.6,4.58-1.08.14-1.1-8.39,1.08-.14.19,1.43c.2-.55.53-.99,1-1.33.47-.34,1.02-.55,1.65-.63,1-.13,1.86.07,2.58.61Z"/>
+    <path class="st0" d="M69.57,71.87l4.39-.58.12.89-5.62.74-.12-.89,3.45-7.18-4.24.56-.12-.89,5.47-.72.12.89-3.45,7.18Z"/>
+    <path class="st0" d="M82.06,62.6l1.1,8.39-1.08.14-.19-1.48c-.18.56-.5,1-.98,1.35-.48.34-1.03.56-1.67.64-1,.13-1.86-.07-2.58-.61-.72-.54-1.15-1.39-1.31-2.57l-.64-4.9,1.06-.14.63,4.78c.12.91.44,1.58.96,2,.52.42,1.17.58,1.96.48.81-.11,1.42-.45,1.83-1.02.41-.58.56-1.36.43-2.35l-.6-4.56,1.08-.14Z"/>
+    <path class="st0" d="M85.21,59.15l1.5,11.37-1.08.14-1.5-11.37,1.08-.14Z"/>
+    <path class="st0" d="M88.32,63.72c.26-.7.67-1.26,1.23-1.69.56-.43,1.23-.7,2-.8.8-.11,1.51-.01,2.14.28.63.29,1.11.71,1.44,1.25l-.24-1.84,1.08-.14,1.1,8.39-1.08.14-.25-1.86c-.19.61-.55,1.14-1.08,1.59-.53.45-1.19.73-1.99.83-.76.1-1.47.01-2.12-.27-.66-.28-1.2-.72-1.63-1.33-.43-.61-.7-1.35-.81-2.21s-.04-1.64.22-2.33ZM94.78,63.38c-.34-.48-.77-.82-1.29-1.04-.51-.21-1.06-.28-1.63-.21-.59.08-1.11.28-1.55.61-.44.33-.76.76-.96,1.31-.21.54-.26,1.16-.17,1.86.09.69.31,1.27.64,1.75.34.48.76.83,1.27,1.04.51.21,1.06.28,1.65.2.57-.08,1.08-.28,1.52-.62.44-.34.76-.78.97-1.33.21-.55.27-1.16.18-1.84s-.31-1.25-.65-1.73ZM90.17,60.11c-.16-.12-.25-.28-.27-.47-.03-.19.02-.37.14-.53.12-.16.28-.25.47-.27.19-.03.37.02.53.14.16.12.25.28.27.47.03.19-.02.37-.14.53-.12.16-.28.25-.47.27-.2.03-.37-.02-.53-.14ZM92.54,59.8c-.16-.12-.25-.28-.27-.47-.03-.19.02-.37.14-.53.12-.16.28-.25.47-.27.19-.03.37.02.52.14.15.12.24.28.27.47.03.19-.02.37-.13.53-.11.16-.27.25-.46.27-.2.03-.37-.02-.53-.14Z"/>
+    <path class="st0" d="M99.98,68.22c-.67-.37-1.09-.93-1.26-1.69l1.11-.15c.11.46.39.82.82,1.06.43.24.98.32,1.65.23.58-.08,1.02-.28,1.32-.6s.42-.69.36-1.1c-.04-.29-.16-.51-.37-.67-.21-.16-.46-.28-.76-.35s-.69-.14-1.19-.19c-.65-.08-1.17-.18-1.59-.29-.41-.11-.77-.31-1.09-.6-.32-.29-.51-.7-.58-1.24-.05-.41.02-.8.22-1.19.2-.38.51-.7.94-.97.42-.26.92-.43,1.5-.51.9-.12,1.66.01,2.27.4.61.38.99.97,1.14,1.77l-1.08.14c-.1-.49-.34-.86-.73-1.11-.39-.26-.9-.34-1.51-.26-.54.07-.97.26-1.27.56s-.43.64-.38,1.02c.04.33.18.58.41.77s.5.32.81.39.73.16,1.25.23c.63.08,1.13.18,1.51.29.38.11.72.29,1.01.55.29.26.48.64.55,1.13.06.45,0,.87-.21,1.25-.2.39-.51.71-.92.97-.41.26-.91.43-1.48.51-.96.13-1.78,0-2.45-.36Z"/>
+    <path class="st0" d="M107.81,67.19c-.67-.37-1.09-.93-1.26-1.69l1.11-.15c.11.46.39.82.82,1.06.43.24.98.32,1.65.23.58-.08,1.02-.28,1.32-.6.3-.32.42-.69.36-1.1-.04-.29-.16-.51-.37-.67-.21-.16-.46-.28-.76-.35-.3-.07-.69-.14-1.19-.19-.65-.08-1.17-.18-1.58-.29-.41-.11-.77-.31-1.09-.6-.32-.29-.51-.7-.58-1.25-.05-.41.02-.8.22-1.19.2-.38.51-.7.94-.97.42-.26.92-.43,1.5-.51.9-.12,1.66.01,2.27.4.61.38.99.97,1.14,1.77l-1.08.14c-.09-.49-.34-.86-.73-1.12-.39-.26-.9-.34-1.51-.26-.54.07-.97.26-1.27.56-.3.3-.43.64-.38,1.02.04.33.18.58.41.77.23.18.5.32.81.39.31.08.73.16,1.25.23.63.08,1.13.18,1.51.29s.72.29,1.01.55c.29.26.48.64.55,1.13.06.45-.01.87-.21,1.25-.2.39-.5.71-.92.97-.42.26-.91.43-1.48.51-.96.13-1.78,0-2.45-.36Z"/>
+    <path class="st0" d="M113.84,56.57c-.17-.13-.28-.31-.31-.54-.03-.23.02-.42.16-.59.13-.17.31-.27.52-.3.21-.03.41.02.58.15.17.13.27.31.3.53.03.23-.02.43-.16.6-.13.17-.31.28-.52.3-.22.03-.41-.02-.58-.16ZM115.17,58.24l1.1,8.39-1.08.14-1.1-8.39,1.08-.14Z"/>
+    <path class="st0" d="M123.24,57.61c.63.29,1.11.7,1.45,1.23l-.24-1.83,1.07-.14,1.13,8.61c.1.77.02,1.47-.23,2.11s-.66,1.16-1.21,1.56c-.55.4-1.21.65-1.97.75-1.08.14-2,0-2.78-.42-.78-.42-1.31-1.06-1.6-1.91l1.06-.14c.26.56.67.98,1.24,1.26.56.28,1.22.37,1.97.27.54-.07,1.01-.25,1.41-.54.4-.29.69-.67.88-1.16.19-.48.24-1.03.16-1.65l-.27-2.07c-.19.61-.55,1.14-1.08,1.59-.53.45-1.19.73-1.98.83-.77.1-1.48.01-2.14-.27-.66-.28-1.2-.72-1.63-1.33-.43-.61-.7-1.35-.81-2.21-.11-.86-.04-1.64.22-2.33s.67-1.26,1.23-1.69c.56-.43,1.23-.7,2-.8.79-.1,1.5,0,2.13.28ZM124.35,59.48c-.34-.48-.77-.82-1.29-1.04-.51-.21-1.06-.28-1.63-.21-.59.08-1.11.28-1.55.61-.44.33-.76.76-.96,1.31-.2.54-.26,1.16-.17,1.86.09.69.31,1.27.64,1.75.34.48.76.83,1.27,1.04.51.21,1.06.28,1.65.2.57-.08,1.08-.28,1.52-.62.44-.34.76-.78.97-1.33.21-.55.27-1.16.18-1.84s-.31-1.25-.65-1.73Z"/>
+  </g>
+  <g>
+    <path class="st0" d="M16.97,99.83c-.67-.36-1.09-.93-1.26-1.69l1.11-.15c.11.46.38.82.82,1.06.43.24.98.32,1.65.23.58-.08,1.02-.28,1.32-.6.3-.32.42-.69.36-1.1-.04-.29-.16-.51-.37-.67-.21-.16-.46-.28-.76-.35-.3-.07-.69-.14-1.19-.19-.65-.08-1.17-.18-1.58-.29-.41-.11-.77-.31-1.09-.6-.31-.29-.51-.7-.58-1.24-.05-.41.02-.8.22-1.19.2-.38.51-.7.93-.97.42-.26.92-.43,1.5-.51.9-.12,1.66.01,2.27.4.61.38.99.97,1.14,1.77l-1.08.14c-.1-.49-.34-.86-.73-1.12-.39-.26-.9-.34-1.51-.26-.54.07-.97.26-1.27.56-.3.3-.43.64-.38,1.02.04.33.18.58.41.77.23.18.5.31.81.39.31.08.73.16,1.25.23.63.08,1.13.18,1.51.29.38.11.72.29,1.01.55.29.26.48.64.55,1.13.06.45-.01.87-.21,1.26-.2.39-.51.71-.92.97-.41.26-.91.43-1.48.51-.96.13-1.78,0-2.45-.36Z"/>
+    <path class="st0" d="M31.41,94.64l-6.96.92c.11.63.34,1.15.67,1.57s.74.71,1.23.88c.48.17.99.22,1.52.15.7-.09,1.26-.34,1.69-.74.43-.4.69-.9.76-1.49l1.14-.15c-.1.85-.45,1.57-1.05,2.18-.6.61-1.41.98-2.43,1.11-.79.1-1.52.02-2.19-.25-.67-.27-1.23-.71-1.67-1.31-.44-.6-.72-1.34-.83-2.21-.11-.87-.04-1.66.22-2.36.26-.7.68-1.27,1.26-1.7.58-.43,1.27-.7,2.07-.8.8-.1,1.52-.02,2.17.25.65.27,1.17.68,1.57,1.22.4.55.65,1.18.74,1.9.05.37.08.65.08.85ZM29.65,92.35c-.32-.41-.72-.69-1.2-.86-.48-.17-.99-.21-1.52-.14-.8.11-1.45.45-1.94,1.04s-.71,1.35-.65,2.29l5.9-.78c-.07-.63-.27-1.14-.59-1.55Z"/>
+    <path class="st0" d="M32.55,87.95c-.17-.13-.28-.31-.31-.54-.03-.23.02-.42.16-.59.13-.17.31-.27.52-.3s.41.02.58.15c.17.13.27.3.3.53.03.23-.02.43-.16.6-.13.17-.31.27-.52.3s-.41-.02-.58-.16ZM33.88,89.62l1.11,8.39-1.08.14-1.11-8.39,1.08-.14Z"/>
+    <path class="st0" d="M37.84,90.02l.69,5.21c.07.51.21.85.43,1.02.22.17.58.22,1.07.16l.98-.13.12.92-1.15.15c-.76.1-1.34,0-1.76-.31-.42-.3-.68-.86-.78-1.67l-.69-5.21-1.17.15-.12-.91,1.17-.15-.28-2.11,1.09-.14.28,2.11,2.31-.3.12.91-2.31.3Z"/>
+  </g>
+  <g>
+    <path class="st0" d="M44.66,87.36l-.26-1.98,3.7-.49,1.47,11.2-2.21.29-1.21-9.22-1.49.2Z"/>
+    <path class="st0" d="M51.9,95.53c-.28-.21-.45-.49-.49-.85-.05-.36.04-.67.26-.95.22-.27.52-.44.91-.49.38-.05.71.03.98.24s.44.49.49.85c.05.36-.04.67-.25.95-.21.27-.51.43-.89.48-.39.05-.73-.03-1.01-.24Z"/>
+    <path class="st0" d="M64.44,83.22l.99,7.53c.14,1.04-.06,1.9-.58,2.56s-1.3,1.05-2.31,1.19c-1.02.13-1.89-.05-2.6-.56-.71-.51-1.13-1.3-1.27-2.36l2.15-.28c.07.46.23.8.47,1.03s.57.32.96.26c.39-.05.67-.21.84-.49.17-.27.23-.62.17-1.05l-.99-7.53,2.17-.29Z"/>
+    <path class="st0" d="M75.27,84.05l1.12,8.51-2.17.29-.14-1.08c-.23.4-.55.74-.97,1.01-.42.27-.89.44-1.41.51-.67.09-1.27.02-1.82-.19-.55-.21-1.01-.58-1.37-1.09-.36-.51-.6-1.14-.7-1.9l-.66-4.99,2.15-.28.62,4.69c.09.68.33,1.17.71,1.49.39.32.87.44,1.45.36.59-.08,1.04-.32,1.33-.73.29-.41.39-.95.3-1.63l-.62-4.69,2.17-.29Z"/>
+    <path class="st0" d="M79.17,80.63l1.5,11.37-2.15.28-1.5-11.37,2.15-.28Z"/>
+    <path class="st0" d="M81.63,81.81c-.28-.21-.45-.49-.49-.85-.05-.36.04-.67.26-.95.22-.27.52-.44.9-.49.38-.05.71.03.99.24.28.21.45.49.49.85.05.36-.04.68-.26.95-.22.27-.52.44-.9.49-.38.05-.71-.03-.99-.24ZM83.82,82.92l1.12,8.51-2.15.28-1.12-8.51,2.15-.28Z"/>
+    <path class="st0" d="M90.83,88.19c.87-.95,1.57-1.74,2.08-2.36.51-.62.92-1.26,1.23-1.91.31-.65.43-1.25.35-1.83-.07-.52-.25-.92-.53-1.18-.29-.27-.68-.36-1.2-.3-.51.07-.88.29-1.12.67-.23.38-.31.87-.25,1.46l-2.09.28c-.12-1.23.12-2.22.73-2.94.61-.73,1.45-1.16,2.51-1.3,1.17-.15,2.11.04,2.81.58.71.54,1.13,1.31,1.26,2.33.1.8,0,1.59-.34,2.38-.33.78-.74,1.48-1.22,2.09-.48.61-1.12,1.35-1.91,2.23l4.53-.6.24,1.78-7.59,1-.21-1.6.71-.78Z"/>
+    <path class="st0" d="M98.95,79.51c.51-1.09,1.5-1.73,2.99-1.93,1.49-.2,2.62.17,3.39,1.09.77.92,1.27,2.27,1.51,4.04.23,1.78.1,3.22-.41,4.32-.51,1.1-1.5,1.75-2.99,1.94-1.49.2-2.62-.17-3.39-1.1-.77-.93-1.28-2.29-1.51-4.07-.23-1.77-.1-3.2.41-4.29ZM104.31,81.09c-.17-.5-.42-.9-.75-1.19-.34-.29-.79-.4-1.36-.32-.57.08-.99.3-1.23.66-.25.37-.39.81-.42,1.34s0,1.17.11,1.93c.1.78.23,1.43.4,1.94.16.52.41.92.75,1.2.34.28.8.39,1.37.31.57-.08.99-.29,1.24-.66.25-.36.39-.81.42-1.35.02-.54-.02-1.2-.12-1.98-.1-.76-.23-1.39-.4-1.89Z"/>
+    <path class="st0" d="M109.58,85.72c.88-.95,1.57-1.74,2.08-2.36.51-.63.92-1.26,1.23-1.91.31-.65.43-1.25.35-1.83-.07-.52-.25-.92-.53-1.18-.29-.27-.68-.36-1.2-.3-.51.07-.88.29-1.12.67-.23.38-.31.87-.25,1.46l-2.09.27c-.12-1.23.12-2.22.73-2.94s1.45-1.16,2.51-1.3c1.17-.15,2.11.04,2.81.58.71.54,1.13,1.31,1.26,2.33.1.8,0,1.59-.34,2.38-.33.78-.74,1.48-1.22,2.09-.48.61-1.12,1.35-1.91,2.23l4.53-.6.24,1.78-7.59,1-.21-1.6.71-.78Z"/>
+    <path class="st0" d="M122.08,77.01c-.28-.18-.65-.24-1.12-.18-.71.09-1.19.45-1.45,1.06s-.31,1.56-.15,2.84c.19-.44.51-.81.95-1.1.44-.29.94-.48,1.49-.55.67-.09,1.27-.02,1.82.2.55.22,1,.58,1.36,1.09.36.51.59,1.15.69,1.92.1.73.04,1.39-.18,2-.22.61-.59,1.11-1.11,1.5-.52.39-1.17.64-1.95.74-1.07.14-1.93.02-2.61-.38-.67-.39-1.18-.99-1.54-1.81s-.61-1.84-.77-3.08c-.25-1.88-.11-3.33.41-4.38.52-1.04,1.48-1.66,2.87-1.84,1.08-.14,1.95.04,2.62.55.67.51,1.11,1.19,1.32,2.05l-2,.26c-.16-.42-.38-.72-.66-.9ZM120.24,81.57c-.33.37-.45.85-.37,1.46.08.6.31,1.06.7,1.36.39.3.9.41,1.52.33.55-.07.97-.3,1.25-.68.28-.38.38-.86.3-1.43-.08-.59-.3-1.04-.66-1.35-.36-.31-.84-.42-1.44-.34-.54.07-.98.29-1.31.66Z"/>
+  </g>
+  <path class="st0" d="M126.36,74.9c.15-.41.39-.74.72-.99.33-.25.72-.41,1.16-.47.47-.06.88,0,1.25.16.37.17.65.41.84.73l-.14-1.08.63-.08.64,4.89-.63.08-.14-1.08c-.11.35-.32.66-.63.93-.31.26-.7.42-1.16.49-.44.06-.85,0-1.24-.16-.38-.16-.7-.42-.95-.78s-.41-.78-.47-1.29c-.07-.5-.02-.96.13-1.36ZM130.13,74.7c-.2-.28-.45-.48-.75-.6-.3-.12-.62-.17-.95-.12-.35.05-.65.17-.9.36-.25.19-.44.45-.56.76-.12.32-.15.68-.1,1.08.05.4.18.74.38,1.02.2.28.44.48.74.6.29.12.62.16.96.11.33-.04.63-.16.89-.36.26-.2.45-.46.57-.78.12-.32.16-.68.11-1.07-.05-.39-.18-.73-.38-1.01Z"/>
+</svg>
       </div>
     </div>
   </section>
@@ -369,30 +334,33 @@
     <div class="inner">
       <div>
         <div class="eyebrow">Warum edupression<sup>®</sup></div>
-        <h2>Ergänzt die Behandlung — ohne Wartezeit<sup>b</sup></h2>
-        <p class="lead">Fünf Gründe, weshalb edupression® nach ärztlicher Verordnung sofort einsatzbereit ist.</p>
+        <h2>edupression<sup>®</sup> kann die Behandlung ergänzen — ohne Wartezeit<sup>b</sup></h2>
       </div>
-      <div class="benefit-list">
+      <div class="benefit-grid">
         <div class="benefit">
-          <div class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.2L4.7 9L10 2.5" stroke="#47AF55" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <img class="chk" src="assets/Check-Arrow.svg" alt="">
           <div><div class="h">Sofortiger Therapiestart</div><div class="d">Nach ärztlicher Verordnung kann edupression® zeitnah begonnen werden und die Zeit bis zum Beginn einer Psychotherapie strukturiert überbrücken.</div></div>
         </div>
         <div class="benefit">
-          <div class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.2L4.7 9L10 2.5" stroke="#47AF55" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div><div class="h">Flexibel einsetzbar</div><div class="d">Für Erwachsene mit leichten bis mittelgradigen depressiven Episoden: individualisierte, interaktive Inhalte mit Therapie-Feedback in einer Anwendung.</div></div>
+          <img class="chk" src="assets/Check-Arrow.svg" alt="">
+          <div><div class="h">Evidenzbasiertes Sicherheitsprofil</div><div class="d">Strukturiertes Monitoring unterstützt die Verlaufskontrolle. In einer 12-wöchigen randomisierten Studie mit aktiver Kontrollgruppe wurden weniger klinisch relevante Verschlechterungen beobachtet.<sup>2,3</sup></div></div>
         </div>
         <div class="benefit">
-          <div class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.2L4.7 9L10 2.5" stroke="#47AF55" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div><div class="h">Nachgewiesener Zusatznutzen</div><div class="d">Die eFICASY-Studie bestätigt einen signifikanten zusätzlichen Behandlungseffekt — auch bei Pharmakotherapie oder persönlicher Psychotherapie.<sup>2,3</sup></div></div>
+          <img class="chk" src="assets/Check-Arrow.svg" alt="">
+          <div><div class="h">Flexibel einsetzbar</div><div class="d">Für Erwachsene mit leichten bis mittelgradigen depressiven Episoden: individualisierte und interaktive Inhalte mit Therapie-Feedback in einer Anwendung.</div></div>
         </div>
         <div class="benefit">
-          <div class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.2L4.7 9L10 2.5" stroke="#47AF55" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div><div class="h">Evidenzbasiertes Sicherheitsprofil</div><div class="d">Strukturiertes Monitoring unterstützt die Verlaufskontrolle: In einer 12-wöchigen randomisierten Studie zeigten sich in der Interventionsgruppe weniger klinisch relevante Verschlechterungen als in der Kontrollgruppe.<sup>2,3</sup></div></div>
+          <img class="chk" src="assets/Check-Arrow.svg" alt="">
+          <div><div class="h">Patientenedukation unterstützt die Behandlung</div><div class="d">Psychoedukationsmodule vermitteln Wissen über Erkrankung, Behandlung und Medikamente, ergänzt durch Übungen auf Grundlage der KVT.</div></div>
         </div>
         <div class="benefit">
-          <div class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.2L4.7 9L10 2.5" stroke="#47AF55" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div><div class="h">Patientenedukation</div><div class="d">Psychoedukationsmodule vermitteln Wissen über Erkrankung, Behandlung und Medikamente, ergänzt durch Übungen auf Grundlage der kognitiven Verhaltenstherapie.</div></div>
+          <img class="chk" src="assets/Check-Arrow.svg" alt="">
+          <div><div class="h">Nachgewiesener Zusatznutzen bei bestehender Behandlung</div><div class="d">In der eFICASY-Studie bestätigte sich der signifikante zusätzliche Behandlungseffekt, auch bei Pharmakotherapie oder persönlicher Psychotherapie.<sup>2,3</sup></div></div>
         </div>
+      </div>
+      <div class="qr-row">
+        <img src="assets/QR_edupression-1024.svg" alt="QR-Code zum App-Download">
+        <div class="qr-label">Jetzt App<br>downloaden</div>
       </div>
     </div>
   </section>
@@ -402,26 +370,27 @@
     <div class="inner">
       <div>
         <div class="eyebrow">So geht's</div>
-        <h2>In drei Schritten zur Verschreibung</h2>
-        <div class="step">
-          <div class="step-n">1</div>
-          <div><div class="h">Verschreibungsformular herunterladen</div><div class="d">QR-Code scannen oder Formular direkt abrufen.</div></div>
-        </div>
-        <div class="step">
-          <div class="step-n">2</div>
-          <div><div class="h">Angaben ausfüllen</div><div class="d">Ihre Angaben sowie die Patientenangaben eintragen.</div></div>
-        </div>
-        <div class="step">
-          <div class="step-n">3</div>
-          <div><div class="h">Formular senden</div><div class="d">An contact@mediservice.ch — die weitere Abwicklung mit der Krankenkasse übernimmt MediService.</div></div>
+        <h2>In drei Schritten zur Verschreibung von edupression<sup>®</sup></h2>
+        <div class="step-imgs">
+          <img src="assets/Step-01.svg" alt="Schritt 1: Verschreibungsformular herunterladen">
+          <img src="assets/Step-02.svg" alt="Schritt 2: Angaben ausfüllen">
+          <img src="assets/Step-03.svg" alt="Schritt 3: Formular senden">
         </div>
       </div>
-      <div class="contact-panel">
-        <div class="k">Startklar für die digitale Therapie</div>
-        <div class="v">Zugangscode &amp; Anleitung innerhalb von zwei Arbeitstagen.<sup>b</sup></div>
-        <div class="k">Kontakt</div>
-        <div class="v" style="font-size:1rem;">contact@mediservice.ch</div>
-        <span class="badge-inline">CE-zertifiziertes Medizinprodukt, Klasse I</span>
+      <div class="steps-right">
+        <div class="txt-col">
+          <h2>Startklar für die digitale Therapie!</h2>
+          <p>Ihr:e Patient:in erhält innerhalb von zwei Arbeitstagen den Zugangscode sowie eine Anleitung zur Aktivierung von edupression®.<sup>b</sup></p>
+          <p>Die weitere Abwicklung mit der Krankenkasse übernimmt MediService.</p>
+          <div class="qr-row" style="justify-content:flex-start;margin-top:18px;">
+            <img src="assets/QR_edupression-1024.svg" alt="QR-Code: Mehr erfahren">
+            <div class="qr-label">Mehr erfahren</div>
+          </div>
+          <div class="company-line">AD Swiss Net AG, Seidenstrasse 4, 8304 Wallisellen, Schweiz</div>
+        </div>
+        <div class="visual-stack">
+          <img class="photo-img" src="assets/Edupression-Digitale-Psychotherapie.png" alt="Patientin mit Smartphone">
+        </div>
       </div>
     </div>
     <div class="footer-legal">
@@ -431,7 +400,7 @@
         1 Bundesamt für Gesundheit (BAG), 4. Dezember 2025; KLV Anhang 2 / MiGeL, Ausgabe 1. Juli 2026, Ziffer 40.01, Position 40.01.01.00.1, S. 3–4. —
         2 Preiss et al. RCT of the efficacy of the digital self-help program edupression.com® in mild-to-moderate unipolar depressive patients (eFICASY study). Int J Neuropsychopharmacol. 2025;28(Suppl 1):i196–i197. —
         3 Pezawas L. Evidenzbasierte digitale Depressionstherapie. psychopraxis. neuropraxis 27, 35–38 (2024). —
-        AD Swiss Net AG, Seidenstrasse 4, 8304 Wallisellen, Schweiz. Medizinprodukt der Klasse I gemäss Verordnung (EU) 2017/745.
+        Medizinprodukt der Klasse I gemäss Verordnung (EU) 2017/745.
       </p>
     </div>
   </section>
@@ -439,10 +408,7 @@
 </div>
 
 <script>
-  // mobile viewport-height fix (address bar collapse)
-  function setVH(){
-    document.documentElement.style.setProperty('--vh', (window.innerHeight*0.01)+'px');
-  }
+  function setVH(){ document.documentElement.style.setProperty('--vh', (window.innerHeight*0.01)+'px'); }
   setVH();
   window.addEventListener('resize', setVH);
   window.addEventListener('orientationchange', setVH);
@@ -450,8 +416,6 @@
   const buttons = document.querySelectorAll('nav.dots button');
   const sections = document.querySelectorAll('section');
   const scroller = document.getElementById('scroller');
-  const navdots = document.getElementById('navdots');
-  const darkSections = new Set(['cover','benefits']);
 
   buttons.forEach(btn=>{
     btn.addEventListener('click', ()=>{
@@ -463,8 +427,6 @@
     entries.forEach(entry=>{
       if(entry.isIntersecting){
         buttons.forEach(b=>b.classList.toggle('active', b.dataset.target === entry.target.id));
-        const isDark = darkSections.has(entry.target.id);
-        navdots.classList.toggle('on-dark', isDark);
       }
     });
   }, {root:scroller, threshold:0.6});
