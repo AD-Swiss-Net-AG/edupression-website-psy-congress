@@ -50,7 +50,7 @@
     background:var(--paper);
   }
   .inner{
-    width:100%;max-width:1180px;margin:0 auto;
+    width:100%;max-width:1180px;margin:0 auto;min-width:0;
     display:grid;grid-template-columns:1.05fr 0.95fr;
     gap:clamp(28px,6vw,72px);align-items:center;
   }
@@ -154,6 +154,7 @@
   #benefits .inner{grid-template-columns:1fr;max-width:1040px;}
   .benefit-grid{column-count:2;column-gap:44px;}
   .benefit{display:flex;gap:14px;align-items:flex-start;break-inside:avoid;margin-bottom:22px;}
+  .benefit > div{min-width:0;}
   .benefit img.chk{width:40px;flex:none;margin-top:2px;}
   .benefit .h{font-weight:600;font-size:1rem;margin-bottom:3px;color:var(--ink);}
   .benefit .d{font-size:1rem;color:var(--ink);opacity:.82;line-height:1.62;max-width:38ch;font-weight:400;}
@@ -209,7 +210,7 @@
     #problem .problem-head{grid-column:1/-1;}
     #problem .inner > p{grid-column:1/-1;}
     #problem h2{font-size:clamp(1.15rem,5.5vw,1.4rem);}
-    #problem p{font-size:.85rem;line-height:1.48;}
+    #problem p{font-size:.78rem;line-height:1.4;}
     #problem .problem-bottom-text{grid-column:1;}
     #problem .visual-stack{grid-column:2;grid-row:auto;max-width:none;width:100%;margin:4px 0 0;}
     .badge-inline{display:none !important;}
@@ -217,12 +218,12 @@
     /* Benefits: 2 columns instead of a long single stack */
     #benefits .inner{gap:12px;}
     #benefits h2{font-size:clamp(1.3rem,6.5vw,1.7rem);}
-    .benefit-grid{column-count:2;column-gap:14px;}
-    .benefit{margin-bottom:14px;}
+    .benefit-grid{display:flex;flex-wrap:wrap;column-gap:14px;row-gap:14px;}
+    .benefit{width:calc(50% - 7px);margin-bottom:0;min-width:0;}
     .benefit{gap:8px;}
     .benefit img.chk{width:28px;margin-top:0;}
-    .benefit .h{font-size:.85rem;line-height:1.48;margin-bottom:1px;}
-    .benefit .d{font-size:.85rem;line-height:1.48;max-width:none;}
+    .benefit .h{font-size:.78rem;line-height:1.4;margin-bottom:1px;}
+    .benefit .d{font-size:.78rem;line-height:1.4;max-width:none;}
     .qr-row{justify-content:flex-start;margin-top:14px;}
     .qr-row img{width:40px;height:40px;}
     .qr-label{font-size:.7rem;}
