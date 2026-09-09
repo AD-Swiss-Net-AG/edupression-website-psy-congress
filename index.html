@@ -119,17 +119,16 @@
   nav.dots.on-dark button::before{border-color:rgba(255,255,255,.8);}
 
   .brandmark{
-    position:fixed;
+    position:absolute;
     top:max(20px, env(safe-area-inset-top));
     left:clamp(20px,6vw,96px);
-    z-index:50;
+    z-index:5;
     font-family:var(--font);
     font-weight:600;
     font-size:1rem;
-    color:var(--ink);
+    color:#fff;
     letter-spacing:-.01em;
   }
-  .brandmark.on-dark{color:#fff;}
   .brandmark sup{font-size:.6em;}
 
   /* ---------- Section 1: Cover ---------- */
@@ -268,14 +267,24 @@
   }
   .footer-legal p{max-width:none;font-size:.6rem;opacity:.55;line-height:1.55;margin:0;font-weight:400;}
 
-  /* ---------- Mobile ---------- */
+  /* ---------- Mobile: horizontal swipe paging ---------- */
   @media (max-width:760px){
+    .scroller{
+      display:flex;
+      flex-direction:row;
+      overflow-x:scroll;
+      overflow-y:hidden;
+      scroll-snap-type:x mandatory;
+    }
     nav.dots{flex-direction:row;top:auto;bottom:max(10px, env(safe-area-inset-bottom));right:50%;transform:translateX(50%);gap:2px;}
     .brandmark{font-size:.9rem;}
-    .scroller{scroll-snap-type:y proximity;}
     section{
-      height:auto;min-height:100vh;min-height:100dvh;
-      overflow-y:visible;
+      flex:0 0 100vw;
+      width:100vw;
+      align-items:flex-start;
+      overflow-y:auto;
+      overflow-x:hidden;
+      -webkit-overflow-scrolling:touch;
       padding-top:76px;padding-bottom:64px;
     }
     .inner, #benefits .inner, #steps .inner{grid-template-columns:1fr !important;padding-top:0;}
@@ -294,7 +303,6 @@
 </head>
 <body>
 
-<div class="brandmark" id="brandmark">edupression<sup>®</sup></div>
 <nav class="dots" id="navdots" aria-label="Abschnittsnavigation">
   <button data-target="cover" class="active" aria-label="Zu: Starten statt warten"></button>
   <button data-target="problem" aria-label="Zu: Die Ausgangslage"></button>
@@ -306,6 +314,7 @@
 
   <!-- SECTION 1 — COVER -->
   <section id="cover">
+    <div class="brandmark">edupression<sup>®</sup></div>
     <div class="inner">
       <div>
         <div class="eyebrow">Digitale Therapie bei Depression</div>
@@ -442,12 +451,11 @@
   const sections = document.querySelectorAll('section');
   const scroller = document.getElementById('scroller');
   const navdots = document.getElementById('navdots');
-  const brandmark = document.getElementById('brandmark');
   const darkSections = new Set(['cover','benefits']);
 
   buttons.forEach(btn=>{
     btn.addEventListener('click', ()=>{
-      document.getElementById(btn.dataset.target).scrollIntoView({behavior:'smooth'});
+      document.getElementById(btn.dataset.target).scrollIntoView({behavior:'smooth', block:'start', inline:'start'});
     });
   });
 
@@ -457,7 +465,6 @@
         buttons.forEach(b=>b.classList.toggle('active', b.dataset.target === entry.target.id));
         const isDark = darkSections.has(entry.target.id);
         navdots.classList.toggle('on-dark', isDark);
-        brandmark.classList.toggle('on-dark', isDark);
       }
     });
   }, {root:scroller, threshold:0.6});
