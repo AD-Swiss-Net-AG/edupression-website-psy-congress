@@ -152,11 +152,11 @@
 
   /* ---------- Section: Benefits ---------- */
   #benefits .inner{grid-template-columns:1fr;max-width:1040px;}
-  .benefit-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:44px;row-gap:22px;}
-  .benefit{display:flex;gap:14px;align-items:flex-start;}
+  .benefit-grid{column-count:2;column-gap:44px;}
+  .benefit{display:flex;gap:14px;align-items:flex-start;break-inside:avoid;margin-bottom:22px;}
   .benefit img.chk{width:40px;flex:none;margin-top:2px;}
-  .benefit .h{font-weight:600;font-size:.98rem;margin-bottom:3px;color:var(--ink);}
-  .benefit .d{font-size:.83rem;color:var(--ink);opacity:.78;line-height:1.5;max-width:38ch;font-weight:400;}
+  .benefit .h{font-weight:600;font-size:1rem;margin-bottom:3px;color:var(--ink);}
+  .benefit .d{font-size:1rem;color:var(--ink);opacity:.82;line-height:1.62;max-width:38ch;font-weight:400;}
   .qr-row{display:flex;align-items:center;gap:12px;margin-top:30px;justify-content:flex-end;}
   .qr-row img{width:52px;height:52px;flex:none;}
   .qr-label{font-size:.78rem;font-weight:600;color:var(--ink);line-height:1.3;}
@@ -217,11 +217,12 @@
     /* Benefits: 2 columns instead of a long single stack */
     #benefits .inner{gap:12px;}
     #benefits h2{font-size:clamp(1.3rem,6.5vw,1.7rem);}
-    .benefit-grid{grid-template-columns:1fr 1fr;column-gap:14px;row-gap:14px;}
+    .benefit-grid{column-count:2;column-gap:14px;}
+    .benefit{margin-bottom:14px;}
     .benefit{gap:8px;}
     .benefit img.chk{width:28px;margin-top:0;}
-    .benefit .h{font-size:.78rem;margin-bottom:1px;}
-    .benefit .d{font-size:.68rem;line-height:1.35;max-width:none;}
+    .benefit .h{font-size:.85rem;line-height:1.48;margin-bottom:1px;}
+    .benefit .d{font-size:.85rem;line-height:1.48;max-width:none;}
     .qr-row{justify-content:flex-start;margin-top:14px;}
     .qr-row img{width:40px;height:40px;}
     .qr-label{font-size:.7rem;}
@@ -423,24 +424,20 @@
         </div>
         <div class="benefit">
           <img class="chk" src="assets/Check-Arrow.svg" alt="">
-          <div><div class="h">Evidenzbasiertes Sicherheitsprofil</div><div class="d">Strukturiertes Monitoring unterstützt die Verlaufskontrolle. In einer 12-wöchigen randomisierten Studie mit aktiver Kontrollgruppe wurden weniger klinisch relevante Verschlechterungen beobachtet.<sup>2,3</sup></div></div>
-        </div>
-        <div class="benefit">
-          <img class="chk" src="assets/Check-Arrow.svg" alt="">
           <div><div class="h">Flexibel einsetzbar</div><div class="d">Für Erwachsene mit leichten bis mittelgradigen depressiven Episoden: individualisierte und interaktive Inhalte mit Therapie-Feedback in einer Anwendung.</div></div>
-        </div>
-        <div class="benefit">
-          <img class="chk" src="assets/Check-Arrow.svg" alt="">
-          <div><div class="h">Patientenedukation unterstützt die Behandlung</div><div class="d">Psychoedukationsmodule vermitteln Wissen über Erkrankung, Behandlung und Medikamente, ergänzt durch Übungen auf Grundlage der KVT.</div></div>
         </div>
         <div class="benefit">
           <img class="chk" src="assets/Check-Arrow.svg" alt="">
           <div><div class="h">Nachgewiesener Zusatznutzen bei bestehender Behandlung</div><div class="d">In der eFICASY-Studie bestätigte sich der signifikante zusätzliche Behandlungseffekt, auch bei Pharmakotherapie oder persönlicher Psychotherapie.<sup>2,3</sup></div></div>
         </div>
-      </div>
-      <div class="qr-row">
-        <img src="assets/QR_edupression-1024.svg" alt="QR-Code zum App-Download">
-        <div class="qr-label">Jetzt App<br>downloaden</div>
+        <div class="benefit">
+          <img class="chk" src="assets/Check-Arrow.svg" alt="">
+          <div><div class="h">Evidenzbasiertes Sicherheitsprofil</div><div class="d">Strukturiertes Monitoring unterstützt die Verlaufskontrolle. In einer 12-wöchigen randomisierten Studie mit aktiver Kontrollgruppe wurden weniger klinisch relevante Verschlechterungen beobachtet.<sup>2,3</sup></div></div>
+        </div>
+        <div class="benefit">
+          <img class="chk" src="assets/Check-Arrow.svg" alt="">
+          <div><div class="h">Patientenedukation unterstützt die Behandlung</div><div class="d">Psychoedukationsmodule vermitteln Wissen über Erkrankung, Behandlung und Medikamente, ergänzt durch Übungen auf Grundlage der KVT.</div></div>
+        </div>
       </div>
     </div>
   </section>
