@@ -29,7 +29,6 @@
     background:var(--paper);
     -webkit-font-smoothing:antialiased;
     overscroll-behavior-y:contain;
-    -webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto;
     overflow-wrap:break-word;
   }
   img{max-width:100%;display:block;}
@@ -119,10 +118,10 @@
     position:relative;height:100%;background:var(--grey-bg);overflow:hidden;
   }
   #cover .keyvisual-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:0;}
-  #cover .phone-img{position:absolute;z-index:2;width:min(230px,29vw);left:9%;top:50%;transform:translateY(-46%);}
-  #cover .badge-img{position:absolute;z-index:3;width:min(190px,19vw);right:16%;top:8%;transform:rotate(-9deg);}
+  #cover .phone-img{position:absolute;z-index:2;width:min(230px,29vw);left:9%;top:64%;transform:translateY(-46%);}
+  #cover .badge-img{position:absolute;z-index:3;width:min(190px,19vw);left:9%;top:4%;transform:rotate(-9deg);}
   #cover h1{font-size:clamp(2.6rem,5vw,4.8rem);font-weight:700;line-height:1.03;}
-  .cover-sub{font-size:1.05rem;max-width:38ch;opacity:.82;margin-top:.9rem;}
+  .cover-sub{font-size:1.2rem;max-width:38ch;opacity:.82;margin-top:.9rem;}
   .cta-btn{
     display:inline-flex;align-items:center;gap:12px;
     background:var(--ink);color:#fff;border:none;cursor:pointer;
@@ -152,7 +151,7 @@
   #problem .inner > p{grid-column:1;}
   #problem .problem-bottom-text{grid-column:1;}
   #problem .visual-stack{grid-column:2;grid-row:2/5;align-self:start;max-width:320px;width:100%;}
-  #problem .bg-shape{width:120%;left:-24%;top:18%;}
+  #problem .bg-shape{width:120%;aspect-ratio:490.62/158.26;left:-24%;top:18%;}
   #problem .badge-img{left:-10%;bottom:-8%;transform:rotate(-8deg);}
   .badge-inline{position:static !important;display:block !important;margin-top:14px;
     width:min(190px,19vw) !important;transform:rotate(-9deg) !important;}
@@ -171,18 +170,20 @@
   .qr-label{font-size:.78rem;font-weight:600;color:var(--ink);line-height:1.3;}
 
   /* ---------- Section: Steps ---------- */
-  #steps .inner{grid-template-columns:0.95fr 1.05fr;align-items:stretch;padding-top:4vh;padding-bottom:20px;}
-  .step-imgs img{width:100%;margin-bottom:12px;}
-  .steps-right{display:flex;flex-direction:column;height:100%;}
-  .steps-right .eyebrow{flex:none;}
+  #steps .inner{grid-template-columns:0.95fr 1.05fr;grid-template-rows:auto 1fr;align-items:stretch;padding-top:4vh;padding-bottom:20px;max-width:1040px;}
+  .steps-head{grid-column:1/-1;min-width:0;}
+  .step-imgs{min-width:0;}
+  .step-imgs img{width:100%;aspect-ratio:5.2/1;margin-bottom:12px;}
+  .steps-right{height:100%;min-width:0;}
   .steps-right h2{font-size:clamp(1.4rem,3vw,1.9rem);margin-top:0;}
-  .steps-row{display:grid;grid-template-columns:1.15fr 1fr;gap:24px;align-items:stretch;margin-top:0;flex:1;min-height:0;}
+  .steps-row{display:grid;grid-template-columns:1.15fr 1fr;gap:24px;align-items:stretch;margin-top:0;height:100%;min-height:0;}
+  .steps-row > div{min-width:0;}
   .steps-right .txt-col p{font-size:.86rem;margin-bottom:.8rem;}
-  .steps-right .visual-stack{max-width:none;width:100%;height:100%;margin:0;}
-  .steps-right .photo-img{width:100%;height:100%;object-fit:cover;border-radius:4px;}
+  .steps-right .visual-stack{max-width:none;width:100%;height:100%;margin:0;min-width:0;}
+  .steps-right .photo-img{width:100%;height:100%;object-fit:cover;border-radius:4px;min-width:0;}
   .footer-legal{position:static;margin-top:auto;padding:0 clamp(20px,6vw,96px) max(16px, env(safe-area-inset-bottom));}
   #steps{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;}
-  .footer-legal-inner{max-width:1180px;margin:0 auto;}
+  .footer-legal-inner{max-width:1040px;margin:0 auto;}
   .footer-legal p{max-width:none;font-size:.58rem;opacity:.5;line-height:1.55;margin:0 0 4px 0;font-weight:400;}
   .footer-legal p:last-child{margin-bottom:0;}
   .footer-bottom-row{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-top:8px;hyphens:none;-webkit-hyphens:none;-ms-hyphens:none;}
@@ -202,7 +203,7 @@
     }
     #cover{padding:0;}
     .inner, .steps-right{grid-template-columns:1fr !important;}
-    #steps .inner{padding-top:0;}
+    #steps .inner{padding-top:0;grid-template-rows:none;}
     #problem .inner{padding-top:0;}
     #benefits .inner{padding-top:0;}
     h1{margin-bottom:.35rem;}
@@ -215,12 +216,12 @@
     #cover .cover-textcol{padding:max(64px, env(safe-area-inset-top) + 50px) clamp(20px,6vw,40px) 22px;justify-content:flex-start;}
     #cover .cover-visualcol{min-height:38vh;}
     #cover h1{font-size:clamp(1.9rem,8.5vw,2.5rem);line-height:1.08;}
-    #cover .cover-sub{font-size:.85rem;margin-top:.6rem;}
+    #cover .cover-sub{font-size:.95rem;margin-top:.6rem;}
     #cover .cta-btn{padding:.65rem 1.3rem;font-size:.82rem;margin-top:1rem;}
     .cta-btn .arrow .down{display:none;}
     .cta-btn .arrow .right{display:inline;}
-    #cover .phone-img{width:min(130px,34vw);left:6%;top:50%;}
-    #cover .badge-img{width:min(120px,30vw);right:10%;top:3%;}
+    #cover .phone-img{width:min(130px,34vw);left:6%;top:64%;}
+    #cover .badge-img{width:min(120px,30vw);left:6%;top:2%;}
 
     /* Problem: full-width intro, then last two paragraphs beside the image */
     #problem .inner{grid-template-columns:1.3fr 1fr !important;column-gap:10px;row-gap:0;}
@@ -430,7 +431,6 @@
 </svg>
         </div>
         <div class="visual-stack">
-          <img class="bg-shape" src="assets/blue_bar_big.svg" alt="">
           <img class="phone-img" src="assets/screen1.png" alt="edupression App: Heutige ToDo's">
           
       </div>
@@ -472,17 +472,16 @@
   <!-- SECTION 4 — STEPS / CTA -->
   <section id="steps">
     <div class="inner">
-      <div>
+      <div class="steps-head">
         <div class="eyebrow">So geht's</div>
         <h2>In drei Schritten zur Verschreibung von edupression<sup>®</sup></h2>
-        <div class="step-imgs">
-          <img src="assets/Step-01.svg" alt="Schritt 1: Verschreibungsformular herunterladen">
-          <img src="assets/Step-02.svg" alt="Schritt 2: Angaben ausfüllen">
-          <img src="assets/Step-03.svg" alt="Schritt 3: Formular senden">
-        </div>
+      </div>
+      <div class="step-imgs">
+        <img src="assets/Step-01.svg" alt="Schritt 1: Verschreibungsformular herunterladen">
+        <img src="assets/Step-02.svg" alt="Schritt 2: Angaben ausfüllen">
+        <img src="assets/Step-03.svg" alt="Schritt 3: Formular senden">
       </div>
       <div class="steps-right">
-        <div class="eyebrow" aria-hidden="true" style="visibility:hidden;">So geht's</div>
         <div class="steps-row">
           <div class="visual-stack">
             <img class="photo-img" src="assets/Edupression-Digitale-Psychotherapie.png" alt="Patientin mit Smartphone">
@@ -497,11 +496,11 @@
     </div>
     <div class="footer-legal">
       <div class="footer-legal-inner">
-      <p>a Seit dem 1. Juli 2026 wird edupression® in der Schweiz unter bestimmten Voraussetzungen auf ärztliche Verordnung von der OKP vergütet. Quelle: BAG, «Digitale Therapie-Angebote können neu von Krankenversicherung übernommen werden», 04.12.2025. Abruf: 27.08.2026.</p>
+      <p>a Seit dem 1. Juli 2026 wird edupression® in der Schweiz unter bestimmten Voraussetzungen auf ärztliche Verordnung von der OKP vergütet. Quelle: BAG, «Digitale Therapie-Angebote können neu von Krankenversicherung übernommen werden», 04.12.2025. Abruf: 27.08.2026. www.bag.admin.ch/de/newnsb/GcAWd8OPd1eHCPFR5H8t3</p>
       <p>b edupression® bietet als digitale Gesundheitsanwendung (dGA) eine evidenzbasierte digitale Therapie für Erwachsene mit leichter oder mittelschwerer unipolarer Depression. Nach ärztlicher Verordnung kann edupression® als Überbrückung bis zum Beginn einer Psychotherapie bei leichten bis mittelschweren depressiven Episoden oder ergänzend zu einer laufenden Behandlung eingesetzt werden.</p>
-      <p>1 Bundesamt für Gesundheit (BAG), 4. Dezember 2025; KLV Anhang 2 / MiGeL, Ausgabe 1. Juli 2026, Ziffer 40.01, Position 40.01.01.00.1, S. 3–4.</p>
-      <p>2 Preiss et al. RCT of the efficacy of the digital self-help program edupression.com® in mild-to-moderate unipolar depressive patients (eFICASY study). Int J Neuropsychopharmacol. 2025;28(Suppl 1):i196–i197.</p>
-      <p>3 Pezawas L. Evidenzbasierte digitale Depressionstherapie. psychopraxis. neuropraxis 27, 35–38 (2024).</p>
+      <p>1 Bundesamt für Gesundheit (BAG). «Digitale Therapie-Angebote können neu von Krankenversicherung übernommen werden», 4. Dezember 2025; KLV, Anhang 2 / MiGeL, Ausgabe vom 1. Juli 2026, Ziffer 40.01, Position 40.01.01.00.1, S. 3–4.</p>
+      <p>2 Preiss *, Stamenkovich K, Schimmerl B, et al. RANDOMIZED CONTROLLED CLINICAL TRIAL OF THE EFFICACY OF THE DIGITAL SELF-HELP PROGRAM EDUPRESSION.COM® IN MILD-TO-MODERATE UNIPOLAR DEPRESSIVE PATIENTS (EFICASY-STUDY). Int J Neuropsychopharmacol. 2025;28(Suppl 1):i196-i197. Published 2025 Feb 12. doi:10.1093/ijnp/pyae059.341</p>
+      <p>3 Pezawas, L. Evidenzbasierte digitale Depressionstherapie. psychopraxis. neuropraxis 27, 35–38 (2024). https://doi.org/10.1007/s00739-023-00968-z</p>
       <div class="footer-bottom-row">
         <div class="company-line">AD Swiss Net AG, Seidenstrasse 4, 8304 Wallisellen, Schweiz</div>
         <p class="ce-line">
