@@ -90,9 +90,9 @@
     position:absolute;top:max(24px, env(safe-area-inset-top));right:clamp(20px,6vw,96px);
     z-index:5;text-align:right;
   }
-  .brandmark .logo{font-weight:700;font-size:1.15rem;color:var(--ink);letter-spacing:-.01em;}
+  .brandmark .logo{font-weight:700;font-size:1.5rem;color:var(--ink);letter-spacing:-.01em;}
   .brandmark .logo sup{font-size:.55em;}
-  .brandmark .tag{font-size:.62rem;color:var(--accent);font-weight:500;margin-top:2px;}
+  .brandmark .tag{font-size:1.2rem;color:var(--accent);font-weight:500;margin-top:2px;}
 
   /* ---------- Shared visual composition ---------- */
   .visual-stack{position:relative;width:100%;max-width:340px;justify-self:center;}
@@ -106,30 +106,33 @@
   .phone-img{position:relative;z-index:2;width:100%;}
 
   /* ---------- Section: Cover — split white/grey hero ---------- */
-  #cover{padding:0;background:var(--paper);}
-  #cover .inner{max-width:none;width:100%;height:100%;margin:0;
+  #start{padding:0;background:var(--paper);}
+  #start .inner{max-width:none;width:100%;height:100%;margin:0;
     display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;}
-  #cover .cover-textcol{
+  #start .cover-textcol{
     display:flex;flex-direction:column;justify-content:center;
     padding:0 clamp(28px,5vw,64px) 0 clamp(24px,6vw,96px);
     background:var(--paper);
   }
-  #cover .cover-visualcol{
+  #start .cover-visualcol{
     position:relative;height:100%;background:var(--grey-bg);overflow:hidden;
   }
-  #cover .keyvisual-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:0;}
-  #cover .phone-img{position:absolute;z-index:2;width:min(230px,29vw);left:9%;top:64%;transform:translateY(-46%);}
-  #cover .badge-img{position:absolute;z-index:3;width:min(190px,19vw);left:9%;top:4%;transform:rotate(-9deg);}
-  #cover h1{font-size:clamp(2.6rem,5vw,4.8rem);font-weight:700;line-height:1.03;}
+  #start .keyvisual-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:0;}
+  #start .phone-img{position:absolute;z-index:2;width:min(230px,29vw);left:9%;top:64%;transform:translateY(-46%);}
+  #start .badge-img{position:absolute;z-index:3;width:min(190px,19vw);left:9%;top:4%;transform:rotate(-9deg);}
+  #start h1{font-size:clamp(2.6rem,5vw,4.8rem);font-weight:700;line-height:1.03;}
   .cover-sub{font-size:1.2rem;max-width:38ch;opacity:.82;margin-top:.9rem;}
   .cta-btn{
-    display:inline-flex;align-items:center;gap:12px;
+    display:inline-flex;align-items:center;justify-content:center;gap:12px;
     background:var(--ink);color:#fff;border:none;cursor:pointer;
     padding:.85rem 1.7rem;border-radius:999px;
     font-family:var(--font);font-weight:600;font-size:.95rem;
-    margin-top:1.5rem;width:fit-content;transition:background .2s;
+    width:fit-content;min-width:260px;transition:background .2s;
   }
   .cta-btn:hover{background:var(--accent);}
+  .cta-group{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:1.5rem;}
+  .cta-btn-secondary{background:transparent;border:1.5px solid var(--ink);color:var(--ink);}
+  .cta-btn-secondary:hover{background:var(--ink);color:#fff;}
   .cta-btn .arrow{
     display:inline-flex;align-items:center;justify-content:center;
     width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.2);font-size:.75rem;
@@ -141,24 +144,24 @@
   .indent-line{display:block;padding-left:.7em;}
 
   /* ---------- Section: Problem ---------- */
-  #problem .inner{
+  #ausgangslage .inner{
     display:grid;grid-template-columns:1.4fr 1fr;
     column-gap:clamp(24px,4vw,56px);row-gap:0;
     max-width:1040px;align-items:start;padding-top:4vh;
   }
-  #problem{align-items:flex-start;}
-  #problem .problem-head{grid-column:1/-1;}
-  #problem .inner > p{grid-column:1;}
-  #problem .problem-bottom-text{grid-column:1;}
-  #problem .visual-stack{grid-column:2;grid-row:2/5;align-self:start;max-width:320px;width:100%;}
-  #problem .bg-shape{width:120%;aspect-ratio:490.62/158.26;left:-24%;top:18%;}
-  #problem .badge-img{left:-10%;bottom:-8%;transform:rotate(-8deg);}
+  #ausgangslage{align-items:flex-start;}
+  #ausgangslage .problem-head{grid-column:1/-1;}
+  #ausgangslage .inner > p{grid-column:1;}
+  #ausgangslage .problem-bottom-text{grid-column:1;}
+  #ausgangslage .visual-stack{grid-column:2;grid-row:2/5;align-self:start;max-width:320px;width:100%;}
+  #ausgangslage .bg-shape{width:120%;aspect-ratio:490.62/158.26;left:-24%;top:18%;}
+  #ausgangslage .badge-img{left:-10%;bottom:-8%;transform:rotate(-8deg);}
   .badge-inline{position:static !important;display:block !important;margin-top:14px;
     width:min(190px,19vw) !important;transform:rotate(-9deg) !important;}
 
   /* ---------- Section: Benefits ---------- */
-  #benefits .inner{grid-template-columns:1fr;max-width:1040px;padding-top:4vh;}
-  #benefits{align-items:flex-start;}
+  #vorteile .inner{grid-template-columns:1fr;max-width:1040px;padding-top:4vh;}
+  #vorteile{align-items:flex-start;}
   .benefit-grid{column-count:2;column-gap:44px;}
   .benefit{display:flex;gap:14px;align-items:flex-start;break-inside:avoid;margin-bottom:22px;}
   .benefit > div{min-width:0;}
@@ -170,7 +173,7 @@
   .qr-label{font-size:.78rem;font-weight:600;color:var(--ink);line-height:1.3;}
 
   /* ---------- Section: Steps ---------- */
-  #steps .inner{grid-template-columns:0.95fr 1.05fr;grid-template-rows:auto 1fr;align-items:stretch;padding-top:4vh;padding-bottom:20px;max-width:1040px;}
+  #verschreibung .inner{grid-template-columns:0.95fr 1.05fr;grid-template-rows:auto 1fr;align-items:stretch;padding-top:4vh;padding-bottom:20px;max-width:1040px;}
   .steps-head{grid-column:1/-1;min-width:0;}
   .step-imgs{min-width:0;}
   .step-imgs img{width:100%;aspect-ratio:5.2/1;margin-bottom:12px;}
@@ -182,7 +185,7 @@
   .steps-right .visual-stack{max-width:none;width:100%;height:100%;margin:0;min-width:0;}
   .steps-right .photo-img{width:100%;height:100%;object-fit:cover;border-radius:4px;min-width:0;}
   .footer-legal{position:static;margin-top:auto;padding:0 clamp(20px,6vw,96px) max(16px, env(safe-area-inset-bottom));}
-  #steps{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;}
+  #verschreibung{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;}
   .footer-legal-inner{max-width:1040px;margin:0 auto;}
   .footer-legal p{max-width:none;font-size:.58rem;opacity:.5;line-height:1.55;margin:0 0 4px 0;font-weight:400;}
   .footer-legal p:last-child{margin-bottom:0;}
@@ -201,41 +204,42 @@
       overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;
       padding-top:18px;padding-bottom:34px;
     }
-    #cover{padding:0;}
+    #start{padding:0;}
     .inner, .steps-right{grid-template-columns:1fr !important;}
-    #steps .inner{padding-top:0;grid-template-rows:none;}
-    #problem .inner{padding-top:0;}
-    #benefits .inner{padding-top:0;}
+    #verschreibung .inner{padding-top:0;grid-template-rows:none;}
+    #ausgangslage .inner{padding-top:0;}
+    #vorteile .inner{padding-top:0;}
     h1{margin-bottom:.35rem;}
     h2{margin-bottom:.4rem;}
     p{margin-top:0;margin-bottom:.55rem;font-size:.85rem;line-height:1.48;}
     .eyebrow{display:none;}
 
     /* Cover: stacked white(top)/grey(bottom) split */
-    #cover .inner{grid-template-rows:auto 1fr;gap:0;}
-    #cover .cover-textcol{padding:max(64px, env(safe-area-inset-top) + 50px) clamp(20px,6vw,40px) 22px;justify-content:flex-start;}
-    #cover .cover-visualcol{min-height:38vh;}
-    #cover h1{font-size:clamp(1.9rem,8.5vw,2.5rem);line-height:1.08;}
-    #cover .cover-sub{font-size:.95rem;margin-top:.6rem;}
-    #cover .cta-btn{padding:.65rem 1.3rem;font-size:.82rem;margin-top:1rem;}
+    #start .inner{grid-template-rows:auto 1fr;gap:0;}
+    #start .cover-textcol{padding:max(64px, env(safe-area-inset-top) + 50px) clamp(20px,6vw,40px) 22px;justify-content:flex-start;}
+    #start .cover-visualcol{min-height:38vh;}
+    #start h1{font-size:clamp(1.9rem,8.5vw,2.5rem);line-height:1.08;}
+    #start .cover-sub{font-size:.95rem;margin-top:.6rem;}
+    #start .cta-btn{padding:.65rem 1.3rem;font-size:.82rem;min-width:0;width:100%;}
+    #start .cta-group{margin-top:1rem;gap:8px;width:100%;}
     .cta-btn .arrow .down{display:none;}
     .cta-btn .arrow .right{display:inline;}
-    #cover .phone-img{width:min(130px,34vw);left:6%;top:64%;}
-    #cover .badge-img{width:min(120px,30vw);left:6%;top:2%;}
+    #start .phone-img{width:min(130px,34vw);left:6%;top:64%;}
+    #start .badge-img{width:min(120px,30vw);left:6%;top:2%;}
 
     /* Problem: full-width intro, then last two paragraphs beside the image */
-    #problem .inner{grid-template-columns:1.3fr 1fr !important;column-gap:10px;row-gap:0;}
-    #problem .problem-head{grid-column:1/-1;}
-    #problem .inner > p{grid-column:1/-1;}
-    #problem h2{font-size:clamp(1.15rem,5.5vw,1.4rem);}
-    #problem p{font-size:.78rem;line-height:1.4;}
-    #problem .problem-bottom-text{grid-column:1;}
-    #problem .visual-stack{grid-column:2;grid-row:auto;max-width:none;width:100%;margin:4px 0 0;}
+    #ausgangslage .inner{grid-template-columns:1.3fr 1fr !important;column-gap:10px;row-gap:0;}
+    #ausgangslage .problem-head{grid-column:1/-1;}
+    #ausgangslage .inner > p{grid-column:1/-1;}
+    #ausgangslage h2{font-size:clamp(1.15rem,5.5vw,1.4rem);}
+    #ausgangslage p{font-size:.78rem;line-height:1.4;}
+    #ausgangslage .problem-bottom-text{grid-column:1;}
+    #ausgangslage .visual-stack{grid-column:2;grid-row:auto;max-width:none;width:100%;margin:4px 0 0;}
     .badge-inline{width:min(120px,30vw) !important;}
 
     /* Benefits: 2 columns instead of a long single stack */
-    #benefits .inner{gap:12px;}
-    #benefits h2{font-size:clamp(1.15rem,5.5vw,1.4rem);}
+    #vorteile .inner{gap:12px;}
+    #vorteile h2{font-size:clamp(1.15rem,5.5vw,1.4rem);}
     .benefit-grid{display:flex;flex-direction:column;row-gap:14px;}
     .benefit{width:100%;margin-bottom:0;min-width:0;}
     .benefit{gap:8px;}
@@ -247,16 +251,16 @@
     .qr-label{font-size:.7rem;}
 
     /* Steps: the fullest screen — compact everything */
-    #steps{flex-direction:column;align-items:stretch;justify-content:flex-start;}
-    #steps .inner{gap:10px;flex:none;}
-    #steps h2{font-size:clamp(1.15rem,5.5vw,1.4rem);}
+    #verschreibung{flex-direction:column;align-items:stretch;justify-content:flex-start;}
+    #verschreibung .inner{gap:10px;flex:none;}
+    #verschreibung h2{font-size:clamp(1.15rem,5.5vw,1.4rem);}
     .step-imgs{max-width:320px;margin:0 auto;}
     .step-imgs img{margin-bottom:7px;}
     .steps-right{margin-top:6px;height:auto;}
     .steps-row{flex:none;}
     .steps-right .visual-stack{height:auto;}
     .steps-right .photo-img{height:auto;object-fit:initial;}
-    #steps .steps-right h2{font-size:1rem;margin-bottom:.25rem;}
+    #verschreibung .steps-right h2{font-size:1rem;margin-bottom:.25rem;}
     .steps-row{grid-template-columns:1fr 1fr;gap:10px;margin-top:0;align-items:end;}
     .steps-row .txt-col{order:2;}
     .steps-row .visual-stack{order:1;justify-self:stretch;}
@@ -272,8 +276,8 @@
     .footer-legal p{font-size:.54rem;}
     .cta-arrow{display:none;}
     .brandmark{top:max(14px, env(safe-area-inset-top));right:14px;}
-    .brandmark .logo{font-size:.92rem;}
-    .brandmark .tag{font-size:.56rem;}
+    .brandmark .logo{font-size:1.15rem;}
+    .brandmark .tag{font-size:.95rem;}
   }
 
   button:focus-visible, a:focus-visible{outline:2px solid var(--mint);outline-offset:3px;}
@@ -282,16 +286,16 @@
 <body>
 
 <nav class="dots" id="navdots" aria-label="Abschnittsnavigation">
-  <button data-target="cover" class="active" aria-label="Zu: Starten statt warten"></button>
-  <button data-target="problem" aria-label="Zu: Die Ausgangslage"></button>
-  <button data-target="benefits" aria-label="Zu: Vorteile"></button>
-  <button data-target="steps" aria-label="Zu: Verschreibung"></button>
+  <button data-target="start" class="active" aria-label="Zu: Starten statt warten"></button>
+  <button data-target="ausgangslage" aria-label="Zu: Die Ausgangslage"></button>
+  <button data-target="vorteile" aria-label="Zu: Vorteile"></button>
+  <button data-target="verschreibung" aria-label="Zu: Verschreibung"></button>
 </nav>
 
 <div class="scroller" id="scroller">
 
   <!-- SECTION 1 — COVER -->
-  <section id="cover">
+  <section id="start">
     <div class="brandmark">
       <div class="logo">edupression<sup>®</sup></div>
       <div class="tag">Die digitale Therapie bei Depression</div>
@@ -300,7 +304,10 @@
       <div class="cover-textcol">
         <h1>Starten<span class="indent-line"><span class="small-word">statt</span> <span class="accent-word">warten</span></span><span class="indent-line accent-word">mit edupression<sup>®</sup></span></h1>
         <p class="cover-sub">Evidenzbasierte digitale Therapie für Erwachsene mit leichter oder mittelschwerer unipolarer Depression.</p>
-        <button class="cta-btn" data-target="problem">Mehr erfahren <span class="arrow"><span class="down">↓</span><span class="right">→</span></span></button>
+        <div class="cta-group">
+          <button class="cta-btn" data-target="ausgangslage">Mehr erfahren <span class="arrow"><span class="down">↓</span><span class="right">→</span></span></button>
+          <button class="cta-btn cta-btn-secondary" data-target="verschreibung">Verschreibungsprozess</button>
+        </div>
       </div>
       <div class="cover-visualcol">
         <img class="keyvisual-img" src="assets/SER_Edu_Keyvisual_edit.jpg" alt="Patientin mit dem Kopf in den Händen">
@@ -364,7 +371,7 @@
   </section>
 
   <!-- SECTION 2 — PROBLEM -->
-  <section id="problem">
+  <section id="ausgangslage">
     <div class="inner">
       <div class="problem-head">
         <div class="eyebrow">Die Ausgangslage</div>
@@ -438,7 +445,7 @@
   </section>
 
   <!-- SECTION 3 — BENEFITS -->
-  <section id="benefits">
+  <section id="vorteile">
     <div class="inner">
       <div>
         <div class="eyebrow">Warum edupression<sup>®</sup></div>
@@ -470,7 +477,7 @@
   </section>
 
   <!-- SECTION 4 — STEPS / CTA -->
-  <section id="steps">
+  <section id="verschreibung">
     <div class="inner">
       <div class="steps-head">
         <div class="eyebrow">So geht's</div>
@@ -537,11 +544,22 @@
     entries.forEach(entry=>{
       if(entry.isIntersecting){
         buttons.forEach(b=>b.classList.toggle('active', b.dataset.target === entry.target.id));
+        if(history.replaceState){
+          history.replaceState(null, '', '#' + entry.target.id);
+        }
       }
     });
   }, {root:scroller, threshold:0.6});
 
   sections.forEach(s=>io.observe(s));
+
+  // Jump directly to the section named in the URL hash on load
+  if(location.hash){
+    const target = document.getElementById(location.hash.slice(1));
+    if(target){
+      target.scrollIntoView({behavior:'auto', block:'start', inline:'start'});
+    }
+  }
 </script>
 
 </body>
