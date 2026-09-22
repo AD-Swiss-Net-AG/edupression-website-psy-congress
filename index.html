@@ -180,10 +180,10 @@
   .contact-card-left{display:flex;align-items:center;gap:18px;min-width:0;}
   .contact-card-left img{width:56px;height:56px;flex:none;}
   .contact-card-text .h{font-weight:600;font-size:1rem;color:var(--ink);margin-bottom:2px;}
-  .contact-card-text .d{font-size:.86rem;color:var(--ink);opacity:.7;}
+  .contact-card-text .d{font-size:1rem;color:var(--ink);opacity:.82;}
   .contact-link{
     display:inline-flex;align-items:center;gap:6px;flex:none;
-    font-weight:600;font-size:.9rem;color:var(--ink);text-decoration:none;
+    font-weight:600;font-size:.95rem;color:var(--ink);text-decoration:none;
     border-bottom:2px solid var(--ink);padding-bottom:2px;white-space:nowrap;
   }
   .contact-link:hover{color:var(--accent);border-color:var(--accent);}
@@ -223,6 +223,8 @@
   .footer-legal p:last-child{margin-bottom:0;}
   .footer-bottom-row{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-top:8px;hyphens:none;-webkit-hyphens:none;-ms-hyphens:none;}
   .company-line{font-size:.86rem;color:var(--ink);opacity:.5;}
+  .email-line{font-size:.86rem;color:var(--ink);opacity:.5;text-align:center;flex:1;}
+  .email-line a{color:inherit;text-decoration:underline;}
   .ce-line{display:flex;align-items:center;gap:6px;color:#000;opacity:1;margin:0;flex:none;}
   .ce-mark{width:22px;height:auto;flex:none;}
 
@@ -307,9 +309,10 @@
     .steps-right .txt-col p{font-size:.72rem;margin-bottom:.4rem;line-height:1.35;}
     .steps-right .visual-stack{max-width:none;width:100%;margin:0;}
     .company-line{font-size:.76rem;}
-    .footer-bottom-row{flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:flex-start;gap:8px;margin-top:4px;}
+    .footer-bottom-row{flex-wrap:wrap;justify-content:space-between;align-items:flex-start;column-gap:8px;row-gap:4px;margin-top:4px;}
     .company-line{flex:1 1 0;min-width:0;}
     .ce-line{flex:1 1 0;min-width:0;align-items:center;justify-content:flex-end;text-align:left;}
+    .email-line{flex:1 1 100%;text-align:left;order:3;margin-top:0;}
     .qr-row[style]{margin-top:10px !important;}
 
     .footer-legal{position:static;margin-top:auto;padding-top:14px;padding-left:0;padding-right:0;}
@@ -569,6 +572,7 @@
       <p>3 Pezawas, L. Evidenzbasierte digitale Depressionstherapie. psychopraxis. neuropraxis 27, 35–38 (2024). https://doi.org/10.1007/s00739-023-00968-z</p>
       <div class="footer-bottom-row">
         <div class="company-line">AD Swiss Net AG, Seidenstrasse 4, 8304 Wallisellen, Schweiz</div>
+        <div class="email-line"><a href="mailto:hello@edupression.ch">hello@edupression.ch</a></div>
         <p class="ce-line">
           <svg class="ce-mark" viewBox="0 0 280 200" role="img" aria-label="CE-Kennzeichen">
             <path d="M110,199.498744A100,100 0 0 1 100,200A100,100 0 0 1 100,0A100,100 0 0 1 110,0.501256L110,30.501256A70,70 0 0 0 100,30A70,70 0 0 0 100,170A70,70 0 0 0 110,169.498744Z" fill="#000"/>
